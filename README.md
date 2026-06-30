@@ -1,10 +1,12 @@
 # 🍜 Yummy Lamen
 
-Bem-vindo ao repositório do **Yummy Lamen**, um site moderno e responsivo para um restaurante de lámen feito com HTML, CSS, JavaScript e Bootstrap.
+Site moderno e responsivo para um restaurante fictício de lámen feito com HTML, CSS, JavaScript e Bootstrap.
 
 ## 📸 Visão Geral
 
-Este projeto tem como foco em uma nova temática: lamen artesanal. O site apresenta um design limpo, seções bem definidas, galeria com lightbox, menu responsivo, formulário de contato e mapa integrado via Google Maps.
+O site conta com um layout limpo e intuitivo, seções bem estruturadas, galeria interativa com lightbox, menu dinâmico, formulário de contato e mapa integrado via Google Maps. Cada detalhe foi pensado para proporcionar uma navegação fluida e agradável, voltada para quem busca uma refeição online com praticidade e conforto.
+
+Este projeto evidencia minhas habilidades em desenvolvimento front-end, demonstrando domínio de tecnologias modernas e boas práticas de codificação.
 
 ## 🔧 Tecnologias Utilizadas
 
