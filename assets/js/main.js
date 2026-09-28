@@ -1,4 +1,3 @@
-
 (function() {
   "use strict";
 
@@ -12,7 +11,6 @@
   document.addEventListener('scroll', toggleScrolled);
   window.addEventListener('load', toggleScrolled);
 
- 
   const mobileNavToggleBtn = document.querySelector('.mobile-nav-toggle');
 
   function mobileNavToogle() {
@@ -22,17 +20,14 @@
   }
   mobileNavToggleBtn.addEventListener('click', mobileNavToogle);
 
- 
   document.querySelectorAll('#navmenu a').forEach(navmenu => {
     navmenu.addEventListener('click', () => {
       if (document.querySelector('.mobile-nav-active')) {
         mobileNavToogle();
       }
     });
-
   });
 
- 
   document.querySelectorAll('.navmenu .toggle-dropdown').forEach(navmenu => {
     navmenu.addEventListener('click', function(e) {
       e.preventDefault();
@@ -68,21 +63,34 @@
   document.addEventListener('scroll', toggleScrollTop);
 
   function aosInit() {
-    AOS.init({
-      duration: 600,
-      easing: 'ease-in-out',
-      once: true,
-      mirror: false
-    });
+    const isDesktop = window.innerWidth >= 768;
+
+    if (isDesktop) {
+      AOS.init({
+        duration: 600,
+        easing: 'ease-in-out',
+        once: true,
+        mirror: false
+      });
+    } else {
+      document.querySelectorAll('[data-aos]').forEach(el => {
+        el.removeAttribute('data-aos');
+        el.removeAttribute('data-aos-delay');
+        el.removeAttribute('data-aos-duration');
+        el.removeAttribute('data-aos-easing');
+        el.removeAttribute('data-aos-anchor');
+        el.removeAttribute('data-aos-anchor-placement');
+        el.removeAttribute('data-aos-once');
+        el.removeAttribute('data-aos-mirror');
+      });
+    }
   }
   window.addEventListener('load', aosInit);
-
 
   const glightbox = GLightbox({
     selector: '.glightbox'
   });
 
- 
   new PureCounter();
 
   function initSwiper() {
@@ -101,7 +109,6 @@
 
   window.addEventListener("load", initSwiper);
 
- 
   window.addEventListener('load', function(e) {
     if (window.location.hash) {
       if (document.querySelector(window.location.hash)) {
@@ -117,7 +124,6 @@
     }
   });
 
- 
   let navmenulinks = document.querySelectorAll('.navmenu a');
 
   function navmenuScrollspy() {

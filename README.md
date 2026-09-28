@@ -1,29 +1,59 @@
 # 🍜 Yummy Lamen
 
-Site moderno e responsivo para um restaurante fictício de lámen feito com HTML, CSS, JavaScript e Bootstrap.
+**Site moderno e responsivo para um restaurante fictício de lámen japonês.**
 
-## 📸 Visão Geral
+Feito com HTML, CSS, JavaScript e Bootstrap — sem frameworks, sem build, puro front-end.
 
-O site conta com um layout limpo e intuitivo, seções bem estruturadas, galeria interativa com lightbox, menu dinâmico, formulário de contato e mapa integrado via Google Maps. Cada detalhe foi pensado para proporcionar uma navegação fluida e agradável, voltada para quem busca uma refeição online com praticidade e conforto.
+> 🔗 **Acesse o projeto online:** (https://matheusabib.github.io/Restaurante-de-Lamen/);
 
-Este projeto evidencia minhas habilidades em desenvolvimento front-end, demonstrando domínio de tecnologias modernas e boas práticas de codificação.
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![Bootstrap](https://img.shields.io/badge/Bootstrap_5-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white)
 
-## 🔧 Tecnologias Utilizadas
+</div>
 
-- HTML5
-- CSS3
-- JavaScript
-- Bootstrap 5
-- GLightbox (galeria de imagens)
-- Google Maps Embed
+---
+
+
+## 📖 Sobre o projeto
+
+O **Yummy Lamen** é um site one-page criado para um restaurante fictício de lámen. O objetivo foi construir uma interface moderna, limpa e totalmente responsiva, aplicando boas práticas de HTML semântico, CSS organizado com variáveis e JavaScript vanilla para interações leves.
+
+Todo o projeto foi desenvolvido **sem frameworks de build** (sem Webpack, Vite ou similares) — apenas arquivos estáticos que rodam direto no navegador.
+
+---
 
 ## ✨ Funcionalidades
 
-- 🖼️ Galeria de pratos com lightbox
-- 📋 Menu com imagens, descrição e preços dos lamen
-- 📱 Totalmente responsivo (mobile-first)
-- 📍 Mapa com localização personalizada
-- 📞 Seção de contato com informações completas
-- 👥 Área de depoimentos de clientes
+- 🎞️ **Animações de entrada (AOS)** — ativadas apenas em telas ≥ 768px, desativadas no mobile para melhor performance
+- 🖼️ **Galeria interativa** com lightbox (GLightbox) e carrossel (Swiper)
+- 📋 **Cardápio dinâmico** com abas: Principal, Café da Manhã, Café da Tarde e Jantar
+- 💬 **Depoimentos de clientes** em carrossel automático
+- 🎉 **Seção de eventos** com cards em carrossel
+- 👨‍🍳 **Seção de chefs** com cards e hover social
+- 📊 **Contadores animados** (PureCounter) para estatísticas
+- 📅 **Formulário de reserva** com campos de data, hora e número de pessoas
+- 📍 **Mapa integrado** via Google Maps Embed
+- 📞 **Formulário de contato** com validação
+- 📱 **Totalmente responsivo**, com ajustes específicos para mobile
+- ⬆️ **Botão "voltar ao topo"** e **preloader** animado
 
+---
 
+## 🧰 Tecnologias utilizadas
+
+| Camada | Tecnologia |
+|--------|-----------|
+| Estrutura | HTML5 semântico |
+| Estilo | CSS3 com variáveis (`:root`) e `color-mix()` |
+| Comportamento | JavaScript (Vanilla, IIFE) |
+| Framework CSS | Bootstrap 5 |
+| Animações | AOS (Animate On Scroll) |
+| Galeria | GLightbox + Swiper |
+| Contadores | PureCounter |
+| Ícones | Bootstrap Icons |
+| Fonte | Google Fonts (Roboto, Inter, Amatic SC) |
+| Mapa | Google Maps Embed |
+
+---
