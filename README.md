@@ -1,26 +1,13 @@
 # 🍜 Yummy Lamen
 
-**Site moderno e responsivo para um restaurante fictício de lámen japonês.**
-
-Feito com HTML, CSS, JavaScript e Bootstrap — sem frameworks, sem build, puro front-end.
-
-> 🔗 **Acesse o projeto online:** (https://matheusabib.github.io/Restaurante-de-Lamen/);
+O **Yummy Lamen** é um site one-page criado para um restaurante fictício de lámen. O objetivo foi construir uma interface moderna, limpa e totalmente responsiva, aplicando boas práticas de HTML semântico, CSS organizado com variáveis e JavaScript vanilla para interações leves.
 
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 ![Bootstrap](https://img.shields.io/badge/Bootstrap_5-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white)
 
-</div>
-
----
-
-
-## 📖 Sobre o projeto
-
-O **Yummy Lamen** é um site one-page criado para um restaurante fictício de lámen. O objetivo foi construir uma interface moderna, limpa e totalmente responsiva, aplicando boas práticas de HTML semântico, CSS organizado com variáveis e JavaScript vanilla para interações leves.
-
-Todo o projeto foi desenvolvido **sem frameworks de build** (sem Webpack, Vite ou similares) — apenas arquivos estáticos que rodam direto no navegador.
+> 🔗 **Acesse o projeto online:** (https://matheusabib.github.io/Restaurante-de-Lamen/);
 
 ---
 
