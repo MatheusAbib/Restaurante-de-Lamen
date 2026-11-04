@@ -1,0 +1,21 @@
+﻿.depoimentos { background-color: #f2ede1; }
+
+.depoimentos-grade { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-top: 1px solid var(--borda-fina); border-bottom: 1px solid var(--borda-fina); }
+
+.depoimento { padding: clamp(2rem, 4vw, 3rem); border-right: 1px solid var(--borda-fina); display: flex; flex-direction: column; justify-content: space-between; }
+.depoimento:last-child { border-right: none; }
+.depoimento-destaque { background-color: var(--off-white); }
+
+.depoimento-aspas { font-family: var(--fonte-display); font-size: 4rem; line-height: 1; color: var(--vermelho); margin-bottom: 1rem; display: block; }
+
+.depoimento p { font-family: var(--fonte-display); font-size: 1.125rem; line-height: 1.6; color: var(--carvao); margin-bottom: 2rem; }
+
+.depoimento-rodape { display: flex; align-items: center; justify-content: space-between; }
+.depoimento-rodape strong { font-family: var(--fonte-corpo); font-size: 0.875rem; font-weight: 600; }
+.depoimento-rodape span { color: var(--vermelho); font-size: 0.75rem; letter-spacing: 0.1em; }
+
+@media (max-width: 960px) {
+  .depoimentos-grade { grid-template-columns: 1fr; }
+  .depoimento { border-right: none; border-bottom: 1px solid var(--borda-fina); }
+  .depoimento:last-child { border-bottom: none; }
+}

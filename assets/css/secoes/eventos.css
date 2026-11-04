@@ -1,0 +1,26 @@
+﻿.eventos { background-color: var(--off-white); }
+
+.eventos-grade { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+
+.evento-card { position: relative; aspect-ratio: 3 / 4; overflow: hidden; color: var(--off-white); background-color: var(--carvao); }
+
+.evento-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s ease; }
+.evento-card:hover img { transform: scale(1.05); }
+
+.evento-sobreposicao { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(32, 32, 29, 0) 40%, rgba(32, 32, 29, 0.95) 100%); }
+
+.evento-conteudo { position: absolute; bottom: 0; left: 0; width: 100%; padding: 2rem 1.5rem; z-index: 2; }
+
+.evento-kanji { display: block; font-family: var(--fonte-display); font-size: 1.5rem; color: #fbeedb; margin-bottom: 0.75rem; letter-spacing: 0.1em; }
+
+.evento-conteudo h3 { font-family: var(--fonte-display); font-size: 1.375rem; line-height: 1.2; margin-bottom: 0.75rem; }
+.evento-conteudo p { font-size: 0.8125rem; line-height: 1.6; opacity: 0.8; }
+
+.eventos-rodape { display: flex; align-items: center; justify-content: space-between; margin-top: clamp(2rem, 5vw, 4rem); padding-top: 2rem; border-top: 1px solid var(--borda-fina); }
+
+.eventos-rodape span { font-family: var(--fonte-display); font-size: 0.875rem; letter-spacing: 0.1em; color: var(--oliva); font-style: italic; }
+
+@media (max-width: 960px) {
+  .eventos-grade { grid-template-columns: repeat(2, 1fr); }
+  .eventos-rodape { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
+}

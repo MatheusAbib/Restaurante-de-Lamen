@@ -1,0 +1,98 @@
+﻿:root {
+  --off-white: #f7f3eb;
+  --carvao: #20201d;
+  --vermelho: #a83b32;
+  --areia: #d8b98a;
+  --oliva: #78816a;
+  --fonte-display: "Hina Mincho", serif;
+  --fonte-corpo: "Noto Sans JP", sans-serif;
+  --fonte-condensada: "Noto Sans JP", sans-serif;
+
+  --espaco-1: 0.5rem;
+  --espaco-2: 1rem;
+  --espaco-3: 2rem;
+  --espaco-4: 4rem;
+  --espaco-5: 8rem;
+
+  --largura-max: 1240px;
+  --borda-fina: 1px solid var(--areia);
+  --transicao: 0.35s ease;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--off-white);
+  color: var(--carvao);
+  font-family: var(--fonte-corpo);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--fonte-display);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+
+em {
+  font-style: normal;
+  color: var(--vermelho);
+}
+
+::selection {
+  background-color: var(--vermelho);
+  color: var(--off-white);
+}
+
+.container {
+  width: 100%;
+  max-width: var(--largura-max);
+  margin: 0 auto;
+}
+
+
+
+
+
+
+

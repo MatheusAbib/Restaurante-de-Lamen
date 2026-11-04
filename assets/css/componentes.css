@@ -1,0 +1,215 @@
+.marca {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 50;
+}
+
+.marca__kanji {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  margin-top: 0.5rem;
+  border: 1.5px solid var(--off-white);
+  color: var(--off-white);
+  font-family: var(--fonte-display);
+  font-weight: 700;
+  font-size: 1.5rem;
+  z-index: 2;
+}
+
+.marca__nome-mobile {
+  display: block;
+  font-family: var(--fonte-condensada);
+  font-size: 0.875rem;
+  letter-spacing: 0.2em;
+  color: var(--off-white);
+  margin-top: 0.5rem;
+  text-align: center;
+  z-index: 2;
+}
+
+.rodape__marca .marca__kanji {
+  background-color: var(--vermelho);
+  color: var(--off-white);
+  border: none;
+}
+
+.navegacao__lista {
+  display: flex;
+  gap: clamp(1rem, 2vw, 2rem);
+  align-items: center;
+}
+
+.navegacao__link {
+  position: relative;
+  font-size: 0.8125rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--carvao);
+  padding: 0.25rem 0;
+  transition: color var(--transicao);
+}
+
+.navegacao__link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background-color: var(--vermelho);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transicao);
+}
+
+.navegacao__link:hover,
+.navegacao__link--ativo {
+  color: var(--vermelho);
+}
+
+.navegacao__link:hover::after,
+.navegacao__link--ativo::after {
+  transform: scaleX(1);
+}
+
+.menu-mobile {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  padding: 8px;
+  z-index: 60;
+}
+
+.menu-mobile span {
+  display: block;
+  width: 26px;
+  height: 1.5px;
+  background-color: var(--carvao);
+  transition: transform var(--transicao), opacity var(--transicao);
+}
+
+.menu-mobile[aria-expanded="true"] span:first-child {
+  transform: translateY(4px) rotate(45deg);
+}
+
+.menu-mobile[aria-expanded="true"] span:last-child {
+  transform: translateY(-3.5px) rotate(-45deg);
+}
+
+.botao {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2rem;
+  font-family: var(--fonte-corpo);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  border: 1px solid var(--carvao);
+  transition: background-color var(--transicao), color var(--transicao), border-color var(--transicao);
+}
+
+.botao--primario {
+  background-color: var(--vermelho);
+  border-color: var(--vermelho);
+  color: var(--off-white);
+}
+
+.botao--primario:hover {
+  background-color: var(--carvao);
+  border-color: var(--carvao);
+}
+
+.botao--fantasma {
+  background-color: transparent;
+  border-color: var(--carvao);
+  color: var(--carvao);
+}
+
+.botao--fantasma:hover {
+  background-color: var(--carvao);
+  color: var(--off-white);
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.campo--largo {
+  grid-column: 1 / -1;
+}
+
+.campo label {
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--areia);
+}
+
+.campo input,
+.campo select,
+.campo textarea {
+  font-family: var(--fonte-corpo);
+  font-size: 1rem;
+  color: var(--off-white);
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(247, 243, 235, 0.25);
+  padding: 0.75rem 0;
+  transition: border-color var(--transicao);
+  outline: none;
+}
+
+.campo input:focus,
+.campo select:focus,
+.campo textarea:focus {
+  border-bottom-color: var(--areia);
+}
+
+.campo select option {
+  background-color: var(--carvao);
+  color: var(--off-white);
+}
+
+@media (max-width: 960px) {
+  .menu-mobile {
+    display: flex;
+  }
+
+  .navegacao {
+    position: fixed;
+    inset: 0;
+    background-color: var(--off-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity var(--transicao), visibility var(--transicao);
+    z-index: 55;
+  }
+
+  .navegacao--aberta {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .navegacao__lista {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .navegacao__link {
+    font-size: 1.25rem;
+    letter-spacing: 0.2em;
+  }
+}

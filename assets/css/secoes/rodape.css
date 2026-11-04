@@ -1,0 +1,221 @@
+﻿.rodape {
+  background-color: var(--carvao);
+  color: var(--off-white);
+  padding: clamp(3rem, 6vw, 5rem) 0 2rem;
+  border-top: 1px solid rgba(247, 243, 235, 0.1);
+}
+
+.rodape__assinatura {
+  max-width: 1400px;
+  margin: 0 auto clamp(2.5rem, 5vw, 4rem);
+  padding: 0 clamp(1.5rem, 5vw, 5rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1.25rem;
+}
+
+.rodape__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin: 0;
+  color: var(--areia);
+  font-family: var(--fonte-corpo);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.rodape__eyebrow-line {
+  display: block;
+  width: 2.25rem;
+  height: 1px;
+  background: var(--areia);
+}
+
+.rodape__titulo {
+  margin: 0;
+  font-family: var(--fonte-condensada);
+  font-size: clamp(2.75rem, 7vw, 6rem);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  color: var(--off-white);
+}
+
+.rodape__hand {
+  font-style: normal;
+  color: var(--areia);
+  font-family: var(--fonte-script);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.rodape__tagline {
+  max-width: 540px;
+  margin: 0;
+  color: var(--oliva);
+  font-family: var(--fonte-corpo);
+  font-size: 0.92rem;
+  line-height: 1.75;
+  opacity: 0.85;
+}
+
+.rodape__grade {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+  padding: clamp(2rem, 4vw, 3rem) clamp(1.5rem, 5vw, 5rem);
+  border-top: 1px dashed rgba(247, 243, 235, 0.12);
+  border-bottom: 1px dashed rgba(247, 243, 235, 0.12);
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.rodape__coluna h4 {
+  font-family: var(--fonte-corpo);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--areia);
+  margin: 0 0 0.75rem;
+  padding-bottom: 0.75rem;
+  font-weight: 600;
+  border-bottom: 1px solid rgba(247, 243, 235, 0.12);
+}
+
+.rodape__coluna p,
+.rodape__coluna a {
+  font-family: var(--fonte-corpo);
+  font-size: 0.9rem;
+  opacity: 0.85;
+  line-height: 1.8;
+  color: var(--off-white);
+  margin: 0;
+  text-decoration: none;
+}
+
+.rodape__coluna p + p {
+  margin-top: 0.5rem;
+}
+
+.rodape__coluna a {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 2px;
+  transition: color var(--transicao);
+}
+
+.rodape__coluna a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: var(--areia);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.rodape__coluna a:hover {
+  color: var(--areia);
+}
+
+.rodape__coluna a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.rodape__social {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.rodape__social a {
+  display: inline-block;
+}
+
+.rodape__base {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: clamp(1.75rem, 3vw, 2.5rem) clamp(1.5rem, 5vw, 5rem) 0;
+  font-family: var(--fonte-corpo);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--oliva);
+  opacity: 0.85;
+}
+
+.rodape__base span:last-child {
+  font-family: var(--fonte-condensada);
+  font-size: 1rem;
+  letter-spacing: 0;
+  color: var(--areia);
+  opacity: 1;
+}
+
+.rodape__logo {
+  display: inline-block;
+  width: 64px;
+  height: 64px;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.rodape__logo svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.rodape__logo svg text {
+  font-family: var(--fonte-display);
+  font-weight: bold;
+}
+
+@media (max-width: 960px) {
+  .rodape__grade {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .rodape__assinatura {
+    padding: 0 1rem;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .rodape__grade {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 2rem 1rem;
+  }
+
+  .rodape__base {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    padding: 1.5rem 1rem 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rodape__coluna a,
+  .rodape__coluna a::after {
+    transition: none;
+  }
+}

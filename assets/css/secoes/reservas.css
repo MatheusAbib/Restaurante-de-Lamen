@@ -1,0 +1,112 @@
+﻿.reservas {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  background-color: var(--carvao);
+  color: var(--off-white);
+  padding: 0;
+  align-items: center;
+}
+
+.reservas__imagem {
+  position: relative;
+  height: 950px;
+  overflow: hidden;
+}
+
+.reservas__imagem img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: brightness(0.8);
+}
+
+.reservas__conteudo {
+  padding: clamp(3rem, 8vw, 6rem) clamp(2rem, 6vw, 4rem);
+}
+
+.reservas__conteudo .secao__selo {
+  color: var(--areia);
+}
+
+.reservas__conteudo .secao__titulo {
+  margin-bottom: 1rem;
+}
+
+.reservas__conteudo .secao__descricao {
+  color: var(--off-white);
+  opacity: 0.7;
+  margin-bottom: 2.5rem;
+}
+
+.formulario-reserva {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.campo--largo {
+  grid-column: 1 / -1;
+}
+
+.campo label {
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--areia);
+}
+
+.campo input,
+.campo select {
+  width: 100%;
+  font-family: var(--fonte-corpo);
+  font-size: 1rem;
+  color: var(--off-white);
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(247, 243, 235, 0.3);
+  padding: 0.75rem 0;
+  transition: border-color var(--transicao);
+  outline: none;
+}
+
+.campo input:focus,
+.campo select:focus {
+  border-bottom-color: var(--areia);
+}
+
+.campo select option {
+  background-color: var(--carvao);
+  color: var(--off-white);
+}
+
+.mensagem-formulario {
+  color: var(--areia);
+  font-size: 0.875rem;
+  margin-top: 1rem;
+}
+
+@media (max-width: 960px) {
+  .reservas {
+    grid-template-columns: 1fr;
+  }
+  .reservas__imagem {
+    height: 300px;
+    margin: 2rem 1.5rem 0;
+  }
+  .reservas__conteudo {
+    padding: 2rem 1.5rem 3rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .formulario-reserva {
+    grid-template-columns: 1fr;
+  }
+}

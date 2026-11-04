@@ -1,0 +1,113 @@
+﻿.cabecalho {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1.5rem clamp(1.25rem, 4vw, 2.5rem);
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  z-index: 50;
+}
+
+.navegacao--esquerda .navegacao__lista {
+  justify-content: flex-start;
+}
+
+.navegacao--direita .navegacao__lista {
+  justify-content: flex-end;
+}
+
+.secao {
+  padding: clamp(4rem, 10vw, 8rem) 0;
+  position: relative;
+}
+
+.secao__cabecalho {
+  max-width: 680px;
+  margin-bottom: clamp(2.5rem, 6vw, 4rem);
+}
+
+.secao__selo {
+  font-family: var(--fonte-corpo);
+  font-size: 0.75rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--vermelho);
+  margin-bottom: 1rem;
+}
+
+.secao__titulo {
+  font-family: var(--fonte-display);
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  margin-bottom: 1rem;
+  line-height: 1.1;
+}
+
+.secao__descricao {
+  font-size: 1.0625rem;
+  color: var(--carvao);
+  opacity: 0.75;
+  max-width: 52ch;
+}
+
+.titulo-secao {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: clamp(2.5rem, 6vw, 4rem);
+}
+
+.titulo-secao h2 {
+  font-family: var(--fonte-display);
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  line-height: 1.1;
+  margin-top: 1rem;
+  max-width: 680px;
+}
+
+.titulo-secao h2 span {
+  color: var(--vermelho);
+  font-style: italic;
+}
+
+.titulo-secao > p {
+  font-size: 1.0625rem;
+  color: var(--carvao);
+  opacity: 0.75;
+  max-width: 38ch;
+  line-height: 1.6;
+}
+
+.titulo-centralizado {
+  justify-content: center;
+  text-align: center;
+}
+
+.titulo-centralizado h2 {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 960px) {
+  .titulo-secao {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+}
+
+.secao__titulo {
+  font-family: var(--fonte-display);
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  margin-bottom: 0.5rem;
+  line-height: 1.1;
+  font-weight: 700;
+}
+
+.secao__titulo em {
+  font-style: italic;
+  color: var(--vermelho);
+}
+
