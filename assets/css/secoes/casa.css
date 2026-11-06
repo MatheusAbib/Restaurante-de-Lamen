@@ -1,7 +1,7 @@
 ﻿
 .casa {
   position: relative;
-  padding: clamp(65px, 8vw, 110px) 0;
+  padding: clamp(70px, 8vw, 115px) clamp(20px, 4vw, 60px);
   overflow: hidden;
   background: var(--carvao);
   color: #f7e8c8;
@@ -10,6 +10,10 @@
 .casa .container {
   position: relative;
   z-index: 1;
+  width: 100%;
+  max-width: var(--largura-max);
+  margin-inline: auto;
+  min-width: 0;
 }
 
 .casa *,
@@ -122,7 +126,7 @@
   align-items: center;
   gap: 20px;
   min-width: 0;
-  padding: 25px 0 35px;
+  padding: 25px 12px 45px;
 }
 
 .casa__imagem {
@@ -186,7 +190,7 @@
 .casa__carimbo {
   position: absolute;
   right: 5%;
-  bottom: -20px;
+  bottom: -10px;
   z-index: 3;
   display: flex;
   flex-direction: column;
@@ -239,56 +243,137 @@
   color: #d8bb80;
 }
 
-@media (max-width: 960px) {
+@media (max-width: 1100px) {
+  .casa {
+    padding-inline: clamp(24px, 5vw, 50px);
+  }
+
   .casa__grade {
-    grid-template-columns: 1fr;
     gap: 35px;
   }
 
+  .casa__titulo {
+    font-size: clamp(65px, 8vw, 100px);
+  }
+
+  .casa__imagens {
+    gap: 14px;
+  }
+
+  .casa__imagem figcaption span:first-child {
+    font-size: 19px;
+  }
+}
+
+@media (max-width: 960px) {
+  .casa {
+    padding-block: 80px;
+  }
+
+  .casa__grade {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 55px;
+    padding: 60px 0 70px;
+  }
+
   .casa__texto {
-    max-width: 650px;
+    max-width: 680px;
+  }
+
+  .casa__titulo {
+    font-size: clamp(75px, 12vw, 115px);
+  }
+
+  .casa__historia {
+    max-width: 620px;
+  }
+
+  .casa__paragrafo {
+    font-size: 15px;
   }
 
   .casa__imagens {
     width: min(650px, 100%);
     justify-self: center;
+    gap: 24px;
+    padding: 35px 25px 65px;
+  }
+
+  .casa__imagem--principal {
+    transform: rotate(-4deg) translateY(-15px);
+  }
+
+  .casa__imagem--secundaria {
+    transform: rotate(5deg) translateY(30px);
+  }
+
+  .casa__carimbo {
+    right: 4%;
+    bottom: 0;
   }
 }
 
 @media (max-width: 600px) {
   .casa {
-    padding: 55px 0;
+    padding: 65px 22px 70px;
   }
 
   .casa__topo {
     gap: 12px;
     font-size: 10px;
+    line-height: 1.5;
   }
 
   .casa__topo span:last-child {
     text-align: right;
+    white-space: nowrap;
   }
 
   .casa__grade {
-    padding: 35px 0 55px;
+    gap: 35px;
+    padding: 45px 0 65px;
+  }
+
+  .casa__introducao {
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .casa__selo {
+    padding: 6px 10px;
+    font-size: 13px;
+  }
+
+  .casa__subtitulo {
+    font-size: 10px;
+    letter-spacing: .08em;
   }
 
   .casa__titulo {
-    font-size: clamp(70px, 16vw, 100px);
+    font-size: clamp(62px, 15vw, 95px);
+    line-height: .9;
   }
 
   .casa__historia {
-    margin-top: 25px;
+    margin-top: 28px;
   }
 
   .casa__paragrafo {
+    margin-bottom: 20px !important;
     font-size: 14px;
-    line-height: 1.75;
+    line-height: 1.8;
+  }
+
+  .casa__assinatura {
+    margin-top: 25px !important;
+    font-size: 14px;
+    line-height: 1.6;
   }
 
   .casa__imagens {
-    gap: 8px;
-    padding: 20px 0 45px;
+    gap: 12px;
+    width: 100%;
+    padding: 25px 10px 55px;
   }
 
   .casa__imagem {
@@ -296,20 +381,21 @@
   }
 
   .casa__imagem--principal {
-    transform: rotate(-3deg) translateY(-12px);
+    transform: rotate(-3deg) translateY(-10px);
   }
 
   .casa__imagem--secundaria {
-    transform: rotate(4deg) translateY(25px);
+    transform: rotate(4deg) translateY(20px);
   }
 
   .casa__imagem figcaption {
-    padding: 8px 3px 10px;
+    gap: 3px;
+    padding: 9px 3px 11px;
     font-size: 9px;
   }
 
   .casa__imagem figcaption span:first-child {
-    font-size: 16px;
+    font-size: clamp(13px, 3.5vw, 17px);
   }
 
   .casa__carimbo {
@@ -317,6 +403,7 @@
     bottom: 0;
     width: 85px;
     height: 85px;
+    border-width: 4px;
   }
 
   .casa__carimbo span {
@@ -333,7 +420,54 @@
 
   .casa__rodape {
     gap: 12px;
-    font-size: 11px;
+    font-size: 10px;
+    line-height: 1.5;
+  }
+
+  .casa__rodape span:last-child {
+    text-align: right;
+  }
+}
+
+@media (max-width: 380px) {
+  .casa {
+    padding-inline: 8px;
+  }
+
+  .casa__titulo {
+    font-size: clamp(54px, 15vw, 70px);
+  }
+
+  .casa__imagens {
+    gap: 8px;
+    padding-inline: 5px;
+  }
+
+  .casa__imagem figcaption {
+    font-size: 8px;
+  }
+
+  .casa__imagem figcaption span:first-child {
+    font-size: 12px;
+  }
+
+  .casa__carimbo {
+    width: 72px;
+    height: 72px;
+  }
+
+  .casa__carimbo span,
+  .casa__carimbo small {
+    font-size: 9px;
+  }
+
+  .casa__carimbo strong {
+    font-size: 27px;
+  }
+
+  .casa__topo,
+  .casa__rodape {
+    font-size: 9px;
   }
 }
 

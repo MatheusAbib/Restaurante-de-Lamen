@@ -169,22 +169,35 @@
   color: #9c4234;
 }
 
+@media (max-width: 1200px) {
+  .capa__prato-central {
+    width: min(56vw, 625px);
+  }
+
+  .capa__kanji-texto strong {
+    font-size: clamp(42px, 5.5vw, 70px);
+  }
+}
+
 @media (max-width: 960px) {
   .capa {
     justify-content: center;
-    padding-top: 8rem;
+    padding: 130px 30px 80px;
   }
 
   .capa__fundo {
-    inset: 25% 0 30%;
+    inset: 25% 0 25%;
   }
 
   .capa__faixa-central {
-    bottom: 30%;
+    bottom: 25%;
+    width: clamp(140px, 24vw, 210px);
   }
 
   .capa__kanji-topo {
-    top: 13%;
+    top: 14%;
+    left: 6%;
+    right: 6%;
   }
 
   .capa__kanji-texto {
@@ -201,23 +214,94 @@
   }
 
   .capa__rodape {
+    position: absolute;
+    right: 30px;
+    bottom: 28px;
+    left: 30px;
+    width: auto;
     flex-direction: column;
     align-items: center;
     gap: 7px;
     padding-top: 15px;
-    border-top: none;
+    border-top: 1px solid #bfa987;
     text-align: center;
+  }
+}
+
+@media (max-width: 700px) {
+  .capa {
+    min-height: 100svh;
+    padding: 125px 20px 90px;
+  }
+
+  .capa__faixa-central {
+    width: 30vw;
+    bottom: 25%;
+  }
+
+  .capa__fundo {
+    inset: 30% 0 25%;
+  }
+
+  .capa__kanji-topo {
+    top: 18%;
+    left: 6%;
+    right: 6%;
+    gap: 15px;
+  }
+
+  .capa__kanji-texto {
+    max-width: 45%;
+    font-size: 11px;
+    letter-spacing: .02em;
+  }
+
+  .capa__kanji-texto strong {
+    margin-top: 5px;
+    font-size: clamp(30px, 7vw, 45px);
+  }
+
+  .capa__prato-central {
+    width: min(88vw, 490px);
+  }
+
+  .capa__prato {
+    width: 45%;
+  }
+
+  .capa__prato--esquerda {
+    top: 20%;
+    left: 7%;
+  }
+
+  .capa__prato--direita {
+    top: 20%;
+    right: 7%;
+  }
+
+  .capa__prato--inferior {
+    top: 46%;
+    left: 27.5%;
+  }
+
+  .capa__rodape {
+    right: 20px;
+    bottom: 25px;
+    left: 20px;
+    gap: 5px;
+    font-size: 11px;
   }
 }
 
 @media (max-width: 600px) {
   .capa {
-    min-height: 100svh;
-    padding: 115px 15px 35px;
+    min-height: 50svh;
+    justify-content: center;
+    padding: 115px 15px 100px;
   }
 
   .capa__faixa-central {
-    width: 30vw;
+    width: 35vw;
     bottom: 28%;
   }
 
@@ -242,11 +326,6 @@
     margin-top: 5px;
     font-size: clamp(27px, 8vw, 43px);
   }
-
-  .capa__prato-central {
-    width: min(92%, 420px);
-  }
-
   .capa__prato {
     width: 46%;
   }
@@ -269,20 +348,96 @@
   .capa__rodape {
     position: absolute;
     right: 15px;
-    bottom: 28px;
+    bottom: 25px;
     left: 15px;
     width: auto;
-    font-size: 11px;
+    padding-top: 12px;
+    font-size: 10px;
+    line-height: 1.4;
+  }
+}
+
+@media (max-width: 480px) {
+  .capa {
+    padding: 105px 12px 95px;
+  }
+
+  .capa__kanji-topo {
+    top: 19%;
+    left: 5%;
+    right: 5%;
+  }
+
+  .capa__kanji-texto {
+    max-width: 44%;
+    font-size: 9px;
+  }
+
+  .capa__kanji-texto strong {
+    display: none;
+  }
+  .capa__prato {
+    width: 47%;
+  }
+
+  .capa__prato--esquerda {
+display: none;
+  }
+
+  .capa__prato--direita {
+display: none;
+  }
+
+  .capa__prato--inferior {
+    top: 20%;
+    left: 21%;
+  }
+
+  .capa__rodape {
+    right: 12px;
+    left: 12px;
+    bottom: 20px;
+    gap: 4px;
+    font-size: 9px;
+    letter-spacing: .04em;
   }
 }
 
 @media (max-width: 380px) {
-  .capa__kanji-topo {
-    top: 22%;
+  .capa {
+    padding-top: 100px;
   }
 
-  .capa__kanji-texto strong {
-    font-size: 27px;
+  .capa__kanji-topo {
+    top: 20%;
+  }
+
+  .capa__kanji-texto {
+    font-size: 8px;
+  }
+
+  .capa__prato-central {
+    transform: translateY(2%);
+            width: min(96vw, 490px);
+  }
+
+  .capa__rodape {
+    bottom: 18px;
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 600px) and (max-height: 740px) {
+  .capa {
+    min-height: 740px;
+  }
+
+  .capa__kanji-topo {
+    top: 18%;
+  }
+
+  .capa__prato-central {
+    transform: translateY(2%);
   }
 }
 

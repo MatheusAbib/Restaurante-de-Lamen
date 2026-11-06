@@ -1,7 +1,7 @@
 ﻿
 .eventos {
   position: relative;
-  padding: clamp(65px, 8vw, 110px) 0;
+  padding: clamp(70px, 8vw, 110px) clamp(20px, 4vw, 60px);
   background: #24465a;
   color: #f5e8c8;
   overflow: hidden;
@@ -11,9 +11,10 @@
   position: relative;
   width: 100%;
   max-width: 1300px;
+  min-width: 0;
   margin: 0 auto;
   border: 1px solid;
-  padding: 2rem;
+  padding: clamp(18px, 3vw, 32px);
 }
 
 .eventos__cartaz *,
@@ -168,7 +169,7 @@
   position: relative;
   z-index: 2;
   display: grid;
-  grid-template-columns: 1.12fr .88fr;
+  grid-template-columns: minmax(0, 1.12fr) minmax(0, .88fr);
   grid-template-areas:
     "grupos privada"
     "grupos privada"
@@ -218,6 +219,7 @@
 
 .evento-festival__conteudo {
   position: relative;
+  min-width: 0;
   padding: 13px 5px 0;
 }
 
@@ -237,6 +239,7 @@
   line-height: .95;
   letter-spacing: .01em;
   color: #f3d48d;
+  overflow-wrap: break-word;
 }
 
 .evento-festival__conteudo p {
@@ -424,6 +427,7 @@
 
 .eventos__reserva-texto {
   flex: 1;
+  min-width: 0;
 }
 
 .eventos__reserva-texto > span {
@@ -441,6 +445,7 @@
   font-weight: 400;
   line-height: .9;
   color: #f1d081;
+  overflow-wrap: break-word;
 }
 
 .eventos__reserva-texto p {
@@ -514,19 +519,57 @@
   color: #f0d184;
 }
 
+@media (max-width: 1200px) {
+  .eventos__cabecalho {
+    gap: 25px;
+  }
+
+  .eventos__titulo h2 {
+    font-size: clamp(75px, 9vw, 120px);
+  }
+
+  .eventos__cabecalho-lateral {
+    width: 230px;
+  }
+
+  .eventos__cabecalho-lateral strong {
+    font-size: 36px;
+  }
+
+  .eventos__composicao {
+    column-gap: 30px;
+    padding-inline: 10px;
+  }
+
+  .eventos__reserva {
+    gap: 25px;
+    padding-inline: 25px;
+  }
+
+  .eventos__reserva-link {
+    min-width: 230px;
+  }
+}
+
 @media (max-width: 960px) {
   .eventos__cabecalho {
     flex-direction: column;
     align-items: flex-start;
-    gap: 15px;
+    gap: 20px;
+    padding: 30px 0 38px;
   }
 
   .eventos__titulo h2 {
-    font-size: clamp(75px, 15vw, 135px);
+    font-size: clamp(75px, 13vw, 125px);
   }
 
   .eventos__cabecalho-lateral {
-    width: auto;
+    width: min(100%, 480px);
+  }
+
+  .eventos__faixa {
+    justify-content: center;
+    padding: 14px 20px;
   }
 
   .eventos__faixa span {
@@ -534,16 +577,30 @@
   }
 
   .eventos__composicao {
-    grid-template-columns: 1fr 1fr;
-    gap: 25px;
-    padding: 35px 0;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-areas:
+      "grupos privada"
+      "aniversario especiais";
+    gap: 35px 25px;
+    padding: 40px 12px 45px;
   }
 
-  .evento-festival--aniversario,
-  .evento-festival--especiais,
+  .evento-festival--grupos,
   .evento-festival--privada,
-  .evento-festival--grupos {
+  .evento-festival--aniversario,
+  .evento-festival--especiais {
     margin: 0;
+  }
+
+  .evento-festival--grupos .evento-festival__foto,
+  .evento-festival--privada .evento-festival__foto,
+  .evento-festival--aniversario .evento-festival__foto,
+  .evento-festival--especiais .evento-festival__foto {
+    height: 250px;
+  }
+
+  .evento-festival__conteudo h3 {
+    font-size: clamp(30px, 4vw, 45px);
   }
 
   .eventos__intervencao {
@@ -553,20 +610,26 @@
   .eventos__reserva {
     flex-direction: column;
     align-items: flex-start;
+    gap: 25px;
+  }
+
+  .eventos__reserva-link {
+    width: min(100%, 350px);
+    min-width: 0;
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 700px) {
   .eventos {
-    padding: 55px 0;
+    padding: 65px clamp(20px, 4vw, 30px);
   }
 
   .eventos__cartaz {
-    padding: 0 20px;
+    padding: 22px;
   }
 
   .eventos__topo {
-    font-size: 10px;
+    font-size: 11px;
     gap: 12px;
   }
 
@@ -575,59 +638,241 @@
   }
 
   .eventos__sol {
-    width: 280px;
-    height: 280px;
+    width: 300px;
+    height: 300px;
     right: -130px;
   }
 
   .eventos__titulo h2 {
-    font-size: clamp(65px, 16vw, 100px);
+    font-size: clamp(60px, 13vw, 90px);
+    text-shadow: 4px 4px 0 #a43d2e;
   }
 
   .eventos__composicao {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     grid-template-areas:
       "grupos"
       "privada"
       "aniversario"
       "especiais";
-    gap: 32px;
+    gap: 38px;
+    padding: 35px 12px 45px;
   }
 
-  .evento-festival {
+  .evento-festival--grupos,
+  .evento-festival--privada,
+  .evento-festival--aniversario,
+  .evento-festival--especiais {
     transform: none;
   }
 
-  .evento-festival__foto,
   .evento-festival--grupos .evento-festival__foto,
   .evento-festival--privada .evento-festival__foto,
   .evento-festival--aniversario .evento-festival__foto,
   .evento-festival--especiais .evento-festival__foto {
-    height: 240px;
+    height: 270px;
+  }
+
+  .evento-festival__conteudo h3 {
+    font-size: clamp(35px, 7vw, 52px);
+  }
+
+  .evento-festival--grupos .evento-festival__conteudo {
+    margin: -8px 8px 0;
   }
 
   .eventos__reserva {
-    padding: 22px;
+    padding: 25px;
+    transform: none;
   }
 
   .eventos__reserva-texto > strong {
-    font-size: clamp(42px, 11vw, 65px);
+    font-size: clamp(42px, 9vw, 65px);
   }
 
   .eventos__reserva-link {
     width: 100%;
-    min-width: 0;
+    transform: none;
   }
 
   .eventos__reserva-link strong {
-    font-size: clamp(34px, 9vw, 48px);
+    font-size: clamp(34px, 7vw, 48px);
+  }
+}
+
+@media (max-width: 480px) {
+  .eventos {
+    padding: 55px 18px;
+  }
+
+  .eventos__cartaz {
+    padding: 18px 14px;
+  }
+
+  .eventos__topo {
+    font-size: 10px;
+    letter-spacing: .03em;
+  }
+
+  .eventos__topo span:last-child {
+    display: none;
+  }
+
+  .eventos__cabecalho {
+    padding: 25px 0 32px;
+  }
+
+  .eventos__titulo-jp {
+    font-size: 14px;
+    letter-spacing: .03em;
+  }
+
+  .eventos__titulo h2 {
+    font-size: clamp(44px, 12vw, 65px);
+    letter-spacing: -.1em;
+    text-shadow: 3px 3px 0 #a43d2e;
+  }
+
+  .eventos__cabecalho-lateral {
+    padding: 10px 0 10px 15px;
+  }
+
+  .eventos__cabecalho-lateral > span {
+    font-size: 13px;
+  }
+
+  .eventos__cabecalho-lateral strong {
+    font-size: 32px;
+  }
+
+  .eventos__faixa {
+    padding: 12px 10px;
+    transform: none;
+  }
+
+  .eventos__faixa strong {
+    font-size: clamp(21px, 6vw, 30px);
+  }
+
+  .eventos__composicao {
+    gap: 32px;
+    padding: 30px 5px 35px;
+  }
+
+  .evento-festival__foto {
+    border-width: 5px;
+  }
+
+  .evento-festival--grupos .evento-festival__foto,
+  .evento-festival--privada .evento-festival__foto,
+  .evento-festival--aniversario .evento-festival__foto,
+  .evento-festival--especiais .evento-festival__foto {
+    height: 210px;
+  }
+
+  .evento-festival__conteudo h3 {
+    font-size: clamp(30px, 8vw, 40px);
+  }
+
+  .evento-festival__japones {
+    font-size: 14px;
+  }
+
+  .evento-festival__conteudo p {
+    font-size: 12px;
+  }
+
+  .evento-festival--grupos .evento-festival__conteudo {
+    margin: -5px 5px 0;
+    padding: 15px;
+    transform: none;
+  }
+
+  .evento-festival__detalhe {
+    position: static;
+    display: inline-block;
+    margin-top: 12px;
+    font-size: 11px;
+    transform: rotate(3deg);
+  }
+
+  .evento-festival__titulo-superior {
+    flex-wrap: wrap;
+    gap: 5px 10px;
+  }
+
+  .evento-festival__titulo-superior span {
+    font-size: 13px;
+  }
+
+  .evento-festival__titulo-superior strong {
+    font-size: 28px;
+  }
+
+  .eventos__reserva {
+    gap: 22px;
+    padding: 22px 15px;
+  }
+
+  .eventos__reserva-texto > span {
+    font-size: 13px;
+  }
+
+  .eventos__reserva-texto > strong {
+    font-size: clamp(35px, 10vw, 48px);
+  }
+
+  .eventos__reserva-texto p {
+    font-size: 12px;
+  }
+
+  .eventos__reserva-link {
+    padding: 16px;
+  }
+
+  .eventos__reserva-link > span {
+    font-size: 12px;
+  }
+
+  .eventos__reserva-link strong {
+    font-size: clamp(30px, 8vw, 40px);
   }
 
   .eventos__rodape {
-    margin-top: 45px;
+    margin-top: 35px;
     flex-wrap: wrap;
     gap: 10px;
     font-size: 11px;
+  }
+}
+
+@media (max-width: 360px) {
+  .eventos {
+    padding-inline: 6px;
+  }
+
+  .eventos__cartaz {
+    padding: 15px 8px;
+  }
+
+  .eventos__titulo h2 {
+    font-size: 42px;
+  }
+
+  .eventos__composicao {
+    padding-inline: 3px;
+  }
+
+  .evento-festival__conteudo h3 {
+    font-size: 29px;
+  }
+
+  .eventos__reserva {
+    padding-inline: 12px;
+  }
+
+  .eventos__reserva-texto > strong {
+    font-size: 33px;
   }
 }
 

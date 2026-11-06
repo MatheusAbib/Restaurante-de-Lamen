@@ -1,7 +1,6 @@
-﻿
-.contato {
+﻿.contato {
   position: relative;
-  padding: clamp(65px, 8vw, 110px) 0;
+  padding: clamp(70px, 8vw, 115px) clamp(20px, 4vw, 60px);
   overflow: hidden;
   background: #315c60;
   color: #f3e6c5;
@@ -20,6 +19,10 @@
 .contato .container {
   position: relative;
   z-index: 1;
+  width: 100%;
+  max-width: var(--largura-max);
+  min-width: 0;
+  margin-inline: auto;
 }
 
 .contato *,
@@ -51,7 +54,7 @@
   justify-content: space-between;
   align-items: center;
   gap: 35px;
-  padding: 35px 5px 45px;
+  padding: 40px 5px 50px;
 }
 
 .contato__titulo {
@@ -61,7 +64,7 @@
 
 .contato__titulo-jp {
   display: block;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
   font-family: "Zen Old Mincho", serif;
   font-size: 18px;
   font-weight: 900;
@@ -70,11 +73,12 @@
 
 .contato__titulo h2 {
   font-family: var(--fonte-condensada), Impact, sans-serif;
-  font-size: clamp(70px, 9vw, 125px);
+  font-size: clamp(64px, 8.2vw, 125px);
   font-weight: 400;
-  line-height: .84;
-  letter-spacing: -.01em;
+  line-height: .95;
+  letter-spacing: -.025em;
   color: #f4e8c9;
+  overflow-wrap: anywhere;
 }
 
 .contato__titulo h2 em {
@@ -133,6 +137,7 @@
   grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr);
   gap: clamp(25px, 4vw, 55px);
   align-items: stretch;
+  min-width: 0;
 }
 
 .contato__info {
@@ -160,13 +165,14 @@
 
 .contato__info-topo strong {
   font-family: var(--fonte-condensada), Impact, sans-serif;
-  font-size: clamp(22px, 2.4vw, 32px);
+  font-size: clamp(20px, 2.4vw, 32px);
   font-weight: 400;
-  line-height: 1;
+  line-height: 1.1;
   text-align: center;
 }
 
 .contato__item {
+  min-width: 0;
   padding: 20px 22px;
   border-bottom: 1px dashed rgba(240, 217, 165, .45);
 }
@@ -228,6 +234,11 @@
   color: #e9c474;
 }
 
+.contato__item a:focus-visible {
+  outline: 2px solid #e9c474;
+  outline-offset: 3px;
+}
+
 .contato__info-rodape {
   display: flex;
   align-items: center;
@@ -268,6 +279,7 @@
   display: flex;
   flex-direction: column;
   gap: 3px;
+  min-width: 0;
 }
 
 .contato__mapa-topo > div span {
@@ -279,12 +291,14 @@
 
 .contato__mapa-topo > div strong {
   font-family: var(--fonte-condensada), Impact, sans-serif;
-  font-size: clamp(35px, 4vw, 52px);
+  font-size: clamp(30px, 4vw, 52px);
   font-weight: 400;
   line-height: 1;
+  overflow-wrap: anywhere;
 }
 
 .contato__mapa-marcador {
+  flex-shrink: 0;
   padding: 7px 10px;
   border: 2px solid #a34534;
   color: #a34534;
@@ -299,6 +313,7 @@
   position: relative;
   flex: 1;
   width: 100%;
+  min-width: 0;
   min-height: 400px;
   overflow: hidden;
   background: #ddd5c3;
@@ -316,8 +331,7 @@
 }
 
 .contato__mapa:hover iframe {
-    filter: saturate(.7) contrast(1);
-
+  filter: saturate(.7) contrast(1);
 }
 
 .contato__mapa-rodape {
@@ -353,9 +367,49 @@
   color: #e8c77f;
 }
 
+@media (max-width: 1100px) {
+  .contato__cabecalho {
+    gap: 25px;
+  }
+
+  .contato__titulo h2 {
+    font-size: clamp(60px, 8vw, 100px);
+  }
+
+  .contato__chamada {
+    width: 155px;
+    height: 155px;
+    padding: 14px;
+  }
+
+  .contato__chamada strong {
+    font-size: 35px;
+  }
+
+  .contato__chamada > span {
+    font-size: 11px;
+  }
+
+  .contato__chamada small {
+    font-size: 8px;
+  }
+
+  .contato__info-topo {
+    padding-inline: 12px;
+  }
+
+  .contato__item {
+    padding-inline: 16px;
+  }
+}
+
 @media (max-width: 960px) {
+  .contato {
+    padding-block: 80px;
+  }
+
   .contato__corpo {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 35px;
   }
 
@@ -369,8 +423,8 @@
     grid-column: 1 / -1;
   }
 
-  .contato__item:nth-of-type(2),
-  .contato__item:nth-of-type(4) {
+  .contato__item:nth-child(3),
+  .contato__item:nth-child(5) {
     border-left: 1px dashed rgba(240, 217, 165, .45);
   }
 
@@ -384,14 +438,43 @@
   }
 }
 
+@media (max-width: 700px) {
+  .contato__cabecalho {
+    gap: 18px;
+  }
+
+  .contato__titulo h2 {
+    font-size: clamp(52px, 10vw, 76px);
+  }
+
+  .contato__chamada {
+    width: 120px;
+    height: 120px;
+    border-width: 4px;
+  }
+
+  .contato__chamada strong {
+    font-size: 27px;
+  }
+
+  .contato__chamada > span {
+    font-size: 9px;
+  }
+
+  .contato__chamada small {
+    font-size: 7px;
+  }
+}
+
 @media (max-width: 600px) {
   .contato {
-    padding: 55px 0;
+    padding: 65px 22px 75px;
   }
 
   .contato__topo {
     gap: 12px;
     font-size: 10px;
+    line-height: 1.5;
   }
 
   .contato__topo span:last-child {
@@ -399,32 +482,69 @@
   }
 
   .contato__cabecalho {
-    padding: 25px 0 35px;
+    padding: 30px 0 40px;
   }
 
   .contato__titulo h2 {
-    font-size: clamp(65px, 15vw, 90px);
+    font-size: clamp(49px, 11.8vw, 75px);
   }
 
   .contato__titulo-jp {
     font-size: 14px;
   }
 
+  .contato__titulo p {
+    margin-top: 16px;
+    font-size: 13px;
+    line-height: 1.7;
+  }
+
   .contato__chamada {
     display: none;
   }
 
+  .contato__corpo {
+    gap: 30px;
+  }
+
   .contato__info {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .contato__info-topo,
+  .contato__info-rodape {
+    grid-column: 1;
+  }
+
+  .contato__info-topo {
+    gap: 8px;
+    padding: 13px 12px;
+  }
+
+  .contato__info-topo strong {
+    font-size: clamp(18px, 5vw, 25px);
+  }
+
+  .contato__info-topo span {
+    font-size: 10px;
   }
 
   .contato__item {
-    padding: 18px;
+    padding: 16px 8px;
   }
 
-  .contato__item:nth-of-type(2),
-  .contato__item:nth-of-type(4) {
+  .contato__item:nth-child(3),
+  .contato__item:nth-child(5) {
     border-left: none;
+  }
+
+  .contato__item p,
+  .contato__item a {
+    font-size: 14px;
+  }
+
+  .contato__info-rodape {
+    min-height: 75px;
   }
 
   .contato__localizacao {
@@ -432,16 +552,21 @@
   }
 
   .contato__mapa-topo {
+    gap: 10px;
     padding: 10px 6px 13px;
   }
 
   .contato__mapa-topo > div strong {
-    font-size: 38px;
+    font-size: clamp(27px, 7vw, 38px);
+  }
+
+  .contato__mapa-topo > div span {
+    font-size: 12px;
   }
 
   .contato__mapa-marcador {
-    font-size: 10px;
     padding: 5px;
+    font-size: 10px;
   }
 
   .contato__mapa,
@@ -449,10 +574,58 @@
     min-height: 300px;
   }
 
+  .contato__mapa-rodape > span {
+    font-size: 12px;
+  }
+
   .contato__rodape {
-    margin-top: 40px;
+    margin-top: 45px;
     gap: 12px;
     font-size: 11px;
+    line-height: 1.5;
+  }
+
+  .contato__rodape span:last-child {
+    text-align: right;
+  }
+}
+
+@media (max-width: 380px) {
+  .contato {
+    padding-inline: 6px;
+  }
+
+  .contato__topo,
+  .contato__rodape {
+    font-size: 9px;
+  }
+
+  .contato__titulo h2 {
+    font-size: clamp(44px, 11vw, 55px);
+  }
+
+  .contato__info-topo {
+    flex-wrap: wrap;
+  }
+
+  .contato__info-topo strong {
+    order: 3;
+    width: 100%;
+    text-align: left;
+  }
+
+  .contato__mapa-topo {
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .contato__mapa-marcador {
+    transform: none;
+  }
+
+  .contato__mapa,
+  .contato__mapa iframe {
+    min-height: 270px;
   }
 }
 
