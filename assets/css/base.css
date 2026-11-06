@@ -1,4 +1,5 @@
-﻿:root {
+﻿
+:root {
   --off-white: #f7f3eb;
   --carvao: #20201d;
   --vermelho: #a83b32;
@@ -30,6 +31,8 @@
 html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
+  scrollbar-width: thin;
+  scrollbar-color: var(--vermelho) #e8e1d6;
 }
 
 body {
@@ -41,6 +44,24 @@ body {
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #e8e1d6;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--vermelho);
+  border-radius: 100px;
+  border: 2px solid #e8e1d6;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #873027;
 }
 
 img {
@@ -89,10 +110,3 @@ em {
   max-width: var(--largura-max);
   margin: 0 auto;
 }
-
-
-
-
-
-
-

@@ -3,7 +3,6 @@
 <html lang="pt-BR">
 <head>
   <base href="/">
-  <!-- <base href="/Restaurante-de-Lamen/"> -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -27,6 +26,117 @@
     rel="stylesheet"
   >
 
+  <style>
+    .loader {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #20201d;
+      color: #f7f3eb;
+      transition: opacity 0.7s ease, visibility 0.7s ease;
+    }
+
+    .loader--oculto {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .loader__conteudo {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .loader__simbolo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 92px;
+      height: 92px;
+      background: #a83b32;
+      color: #f7f3eb;
+      font-family: "Hina Mincho", serif;
+      font-size: 4rem;
+      line-height: 1;
+      animation: loader-entrada 0.8s ease both;
+    }
+
+    .loader__nome {
+      font-family: "Hina Mincho", serif;
+      font-size: clamp(1.5rem, 4vw, 2.25rem);
+      letter-spacing: 0.12em;
+      font-weight: 400;
+      animation: loader-entrada 0.8s 0.15s ease both;
+    }
+
+    .loader__subtitulo {
+      margin-top: -1rem;
+      color: #d8b98a;
+      font-family: "Noto Sans JP", sans-serif;
+      font-size: 0.625rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      animation: loader-entrada 0.8s 0.25s ease both;
+    }
+
+    .loader__progresso {
+      width: 130px;
+      height: 2px;
+      overflow: hidden;
+      background: rgba(216, 185, 138, 0.2);
+      margin-top: 0.75rem;
+    }
+
+    .loader__progresso::after {
+      content: "";
+      display: block;
+      width: 40%;
+      height: 100%;
+      background: #d8b98a;
+      animation: loader-progresso 1.3s ease-in-out infinite;
+    }
+
+    @keyframes loader-entrada {
+      from {
+        opacity: 0;
+        transform: translateY(15px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes loader-progresso {
+      0% {
+        transform: translateX(-110%);
+      }
+
+      100% {
+        transform: translateX(350%);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .loader,
+      .loader__simbolo,
+      .loader__nome,
+      .loader__subtitulo,
+      .loader__progresso::after {
+        animation: none;
+        transition: none;
+      }
+    }
+  </style>
+
   <link rel="stylesheet" href="assets/css/base.css">
   <link rel="stylesheet" href="assets/css/layout.css">
   <link rel="stylesheet" href="assets/css/componentes.css">
@@ -43,6 +153,15 @@
 </head>
 
 <body>
+  <div class="loader" id="loader" role="status" aria-label="Carregando Yummy Lamen">
+    <div class="loader__conteudo">
+      <div class="loader__simbolo" aria-hidden="true">ラ</div>
+      <div class="loader__nome">YUMMY LAMEN</div>
+      <div class="loader__subtitulo">旨いラーメン</div>
+      <div class="loader__progresso" aria-hidden="true"></div>
+    </div>
+  </div>
+
   <header class="cabecalho">
     <nav class="navegacao navegacao--esquerda" aria-label="Navegação principal">
       <ul class="navegacao__lista">
@@ -129,5 +248,42 @@
   <script src="assets/js/menu.js"></script>
   <script src="assets/js/revelar.js"></script>
   <script src="assets/js/rotacao.js"></script>
+
+  <script>
+    (() => {
+      const loader = document.getElementById("loader");
+      const inicio = performance.now();
+      const duracaoMinima = 1100;
+      let finalizado = false;
+
+      const ocultarLoader = () => {
+        if (finalizado) return;
+        finalizado = true;
+
+        const tempoDecorrido = performance.now() - inicio;
+        const espera = Math.max(0, duracaoMinima - tempoDecorrido);
+
+        setTimeout(() => {
+          loader.classList.add("loader--oculto");
+
+          loader.addEventListener("transitionend", () => {
+            loader.remove();
+          }, { once: true });
+
+          setTimeout(() => {
+            loader.remove();
+          }, 900);
+        }, espera);
+      };
+
+      if (document.readyState === "complete") {
+        ocultarLoader();
+      } else {
+        window.addEventListener("load", ocultarLoader, { once: true });
+      }
+
+      setTimeout(ocultarLoader, 4000);
+    })();
+  </script>
 </body>
 </html>
