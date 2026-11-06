@@ -29,7 +29,6 @@ A aplicação foi desenvolvida com **HTML5, CSS3 e JavaScript puro**, priorizand
 - 📞 **Seção de contato** — informações para comunicação com o restaurante.
 - 📱 **Navegação responsiva** — menu adaptado para dispositivos móveis, reunindo todas as seções do site.
 - 🌀 **Animações vinculadas ao scroll** — elementos visuais que respondem à rolagem da página.
-- ♿ **Acessibilidade** — utilização de HTML semântico, textos alternativos, atributos ARIA e respeito à preferência por movimento reduzido.
 
 ---
 
