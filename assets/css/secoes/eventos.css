@@ -1,26 +1,640 @@
-﻿.eventos { background-color: var(--off-white); }
+﻿
+.eventos {
+  position: relative;
+  padding: clamp(65px, 8vw, 110px) 0;
+  background: #24465a;
+  color: #f5e8c8;
+  overflow: hidden;
+}
 
-.eventos-grade { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+.eventos__cartaz {
+  position: relative;
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+  border: 1px solid;
+  padding: 2rem;
+}
 
-.evento-card { position: relative; aspect-ratio: 3 / 4; overflow: hidden; color: var(--off-white); background-color: var(--carvao); }
+.eventos__cartaz *,
+.eventos__cartaz *::before,
+.eventos__cartaz *::after {
+  box-sizing: border-box;
+}
 
-.evento-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s ease; }
-.evento-card:hover img { transform: scale(1.05); }
+.eventos__cartaz h2,
+.eventos__cartaz h3,
+.eventos__cartaz p {
+  margin: 0;
+}
 
-.evento-sobreposicao { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(32, 32, 29, 0) 40%, rgba(32, 32, 29, 0.95) 100%); }
+.eventos__ruido {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  opacity: .16;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.4'/%3E%3C/svg%3E");
+  mix-blend-mode: multiply;
+}
 
-.evento-conteudo { position: absolute; bottom: 0; left: 0; width: 100%; padding: 2rem 1.5rem; z-index: 2; }
+.eventos__sol {
+  position: absolute;
+  top: 40px;
+  right: -80px;
+  width: 430px;
+  height: 430px;
+  border-radius: 50%;
+  background: #b84432;
+  opacity: .75;
+  pointer-events: none;
+}
 
-.evento-kanji { display: block; font-family: var(--fonte-display); font-size: 1.5rem; color: #fbeedb; margin-bottom: 0.75rem; letter-spacing: 0.1em; }
+.eventos__topo {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #f0d184;
+  font-family: "Zen Old Mincho", var(--fonte-display), serif;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: .08em;
+}
 
-.evento-conteudo h3 { font-family: var(--fonte-display); font-size: 1.375rem; line-height: 1.2; margin-bottom: 0.75rem; }
-.evento-conteudo p { font-size: 0.8125rem; line-height: 1.6; opacity: 0.8; }
+.eventos__cabecalho {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 35px;
+  padding: 35px 0 45px;
+}
 
-.eventos-rodape { display: flex; align-items: center; justify-content: space-between; margin-top: clamp(2rem, 5vw, 4rem); padding-top: 2rem; border-top: 1px solid var(--borda-fina); }
+.eventos__titulo {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+}
 
-.eventos-rodape span { font-family: var(--fonte-display); font-size: 0.875rem; letter-spacing: 0.1em; color: var(--oliva); font-style: italic; }
+.eventos__titulo-jp {
+  display: block;
+  margin-bottom: 5px;
+  font-family: "Zen Old Mincho", serif;
+  font-size: 18px;
+  font-weight: 900;
+  letter-spacing: .08em;
+}
+
+.eventos__titulo h2 {
+  font-family: "Zen Old Mincho", serif;
+  font-size: clamp(85px, 12vw, 170px);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -.1em;
+  white-space: nowrap;
+  color: #f1d28b;
+  text-shadow: 5px 6px 0 #a43d2e;
+}
+
+.eventos__titulo h2 span {
+  color: #ed7850;
+}
+
+.eventos__cabecalho-lateral {
+  width: 280px;
+  flex-shrink: 0;
+  padding: 15px 0 15px 20px;
+  border-left: 4px solid #edc76d;
+}
+
+.eventos__cabecalho-lateral > span {
+  display: block;
+  margin-bottom: 8px;
+  font-family: "Zen Old Mincho", serif;
+  font-size: 15px;
+  font-weight: 900;
+}
+
+.eventos__cabecalho-lateral strong {
+  display: block;
+  font-family: var(--fonte-condensada), Impact, sans-serif;
+  font-size: 43px;
+  font-weight: 400;
+  line-height: .9;
+  color: #f2d28c;
+}
+
+.eventos__cabecalho-lateral p {
+  margin-top: 12px;
+  font-family: var(--fonte-corpo), sans-serif;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.eventos__faixa {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 10px 22px;
+  background: #e7c46c;
+  color: #a43c2d;
+  transform: rotate(-1deg);
+}
+
+.eventos__faixa span {
+  font-family: "Zen Old Mincho", serif;
+  font-size: 17px;
+  font-weight: 900;
+  white-space: nowrap;
+}
+
+.eventos__faixa strong {
+  font-family: var(--fonte-condensada), Impact, sans-serif;
+  font-size: clamp(26px, 3.5vw, 43px);
+  font-weight: 400;
+  line-height: 1;
+  text-align: center;
+}
+
+.eventos__composicao {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1.12fr .88fr;
+  grid-template-areas:
+    "grupos privada"
+    "grupos privada"
+    "aniversario especiais";
+  column-gap: clamp(24px, 4vw, 55px);
+  row-gap: 38px;
+  align-items: start;
+  padding: 50px 15px 55px;
+}
+
+.evento-festival {
+  position: relative;
+  min-width: 0;
+}
+
+.evento-festival__foto {
+  position: relative;
+  overflow: hidden;
+  background: #bda67d;
+  border: 8px solid #f0dfb8;
+}
+
+.evento-festival__foto img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: sepia(.12) saturate(.85) contrast(1.08);
+  transition: transform .5s ease;
+}
+
+.evento-festival:hover .evento-festival__foto img {
+  transform: scale(1.025);
+}
+
+.evento-festival__numero {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 6px 12px;
+  background: #ad3f2e;
+  color: #f7e7c2;
+  font-family: var(--fonte-condensada), Impact, sans-serif;
+  font-size: 25px;
+  line-height: 1;
+}
+
+.evento-festival__conteudo {
+  position: relative;
+  padding: 13px 5px 0;
+}
+
+.evento-festival__japones {
+  display: block;
+  margin-bottom: 4px;
+  font-family: "Zen Old Mincho", serif;
+  font-size: 17px;
+  font-weight: 900;
+  color: #efcd80;
+}
+
+.evento-festival__conteudo h3 {
+  font-family: var(--fonte-condensada), Impact, sans-serif;
+  font-size: clamp(37px, 4.5vw, 63px);
+  font-weight: 400;
+  line-height: .95;
+  letter-spacing: .01em;
+  color: #f3d48d;
+}
+
+.evento-festival__conteudo p {
+  max-width: 380px;
+  margin-top: 9px;
+  font-family: var(--fonte-corpo), sans-serif;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.evento-festival--grupos {
+  grid-area: grupos;
+  margin-top: 5px;
+  transform: rotate(-2deg);
+}
+
+.evento-festival--grupos .evento-festival__foto {
+  height: 325px;
+}
+
+.evento-festival--grupos .evento-festival__conteudo {
+  padding: 15px 15px 20px;
+  background: #e8c66f;
+  color: #34271e;
+  margin: -8px 15px 0 -10px;
+  transform: rotate(1deg);
+}
+
+.evento-festival--grupos .evento-festival__japones,
+.evento-festival--grupos .evento-festival__conteudo h3 {
+  color: #a53c2c;
+}
+
+.evento-festival__detalhe {
+  position: absolute;
+  right: 15px;
+  top: 16px;
+  padding: 5px 8px;
+  border: 2px solid #a53c2c;
+  color: #a53c2c;
+  font-family: "Zen Old Mincho", serif;
+  font-size: 12px;
+  font-weight: 900;
+  transform: rotate(8deg);
+}
+
+.evento-festival--privada {
+  grid-area: privada;
+  margin-top: 20px;
+  transform: rotate(2deg);
+}
+
+.evento-festival__titulo-superior {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 13px;
+  background: #ae3d2d;
+  color: #f4dfb5;
+}
+
+.evento-festival__titulo-superior span {
+  font-family: "Zen Old Mincho", serif;
+  font-size: 15px;
+  font-weight: 900;
+}
+
+.evento-festival__titulo-superior strong {
+  font-family: var(--fonte-condensada), Impact, sans-serif;
+  font-size: clamp(26px, 3vw, 42px);
+  font-weight: 400;
+  line-height: 1;
+}
+
+.evento-festival--privada .evento-festival__foto {
+  height: 270px;
+  border-color: #d7b76d;
+}
+
+.evento-festival--privada .evento-festival__conteudo {
+  padding: 16px 18px;
+  background: #a83b2d;
+  color: #f4e3be;
+}
+
+.evento-festival--privada .evento-festival__conteudo p {
+  margin-top: 5px;
+}
+
+.eventos__intervencao {
+  position: absolute;
+  z-index: 4;
+  top: 43%;
+  left: 49%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 125px;
+  height: 125px;
+  border: 5px double #a43d2d;
+  border-radius: 50%;
+  background: #e8c56c;
+  color: #a43d2d;
+  text-align: center;
+  transform: translate(-50%, -50%) rotate(-12deg);
+  pointer-events: none;
+}
+
+.eventos__intervencao span {
+  font-family: "Zen Old Mincho", serif;
+  font-size: 17px;
+  font-weight: 900;
+}
+
+.eventos__intervencao strong {
+  font-family: "Zen Old Mincho", serif;
+  font-size: 35px;
+  line-height: 1.1;
+}
+
+.eventos__intervencao small {
+  max-width: 90px;
+  font-family: var(--fonte-condensada), Impact, sans-serif;
+  font-size: 10px;
+  line-height: 1.1;
+}
+
+.evento-festival--aniversario {
+  grid-area: aniversario;
+  margin: 5px 0 0 30px;
+  transform: rotate(2deg);
+}
+
+.evento-festival--aniversario .evento-festival__foto {
+  height: 245px;
+}
+
+.evento-festival--aniversario .evento-festival__conteudo {
+  padding: 13px 15px 17px;
+  background: #b13e2e;
+}
+
+.evento-festival--aniversario .evento-festival__japones,
+.evento-festival--aniversario .evento-festival__conteudo h3 {
+  color: #f0d184;
+}
+
+.evento-festival--especiais {
+  grid-area: especiais;
+  margin-top: 5px;
+  transform: rotate(-2deg);
+}
+
+.evento-festival--especiais .evento-festival__foto {
+  height: 280px;
+  border-color: #e6c779;
+}
+
+.evento-festival--especiais .evento-festival__conteudo {
+  padding: 13px 15px 17px;
+  background: #e8c66f;
+  color: #34271e;
+}
+
+.evento-festival--especiais .evento-festival__japones,
+.evento-festival--especiais .evento-festival__conteudo h3 {
+  color: #a53c2c;
+}
+
+.eventos__reserva {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 35px;
+  padding: 25px 35px;
+  background: #b13e2f;
+  border-top: 5px solid #e9c66f;
+  border-bottom: 5px solid #e9c66f;
+  transform: rotate(-1deg);
+}
+
+.eventos__reserva-texto {
+  flex: 1;
+}
+
+.eventos__reserva-texto > span {
+  display: block;
+  margin-bottom: 7px;
+  font-family: "Zen Old Mincho", serif;
+  font-size: 15px;
+  font-weight: 900;
+}
+
+.eventos__reserva-texto > strong {
+  display: block;
+  font-family: var(--fonte-condensada), Impact, sans-serif;
+  font-size: clamp(45px, 5.5vw, 75px);
+  font-weight: 400;
+  line-height: .9;
+  color: #f1d081;
+}
+
+.eventos__reserva-texto p {
+  max-width: 480px;
+  margin-top: 10px;
+  font-family: var(--fonte-corpo), sans-serif;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.eventos__reserva-link {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  flex-shrink: 0;
+  min-width: 270px;
+  padding: 18px 22px;
+  background: #e9c76f;
+  color: #a43c2d;
+  text-decoration: none;
+  transform: rotate(3deg);
+  transition: transform .25s ease, background-color .25s ease;
+}
+
+.eventos__reserva-link:hover {
+  transform: rotate(0deg);
+  background: #f3d98e;
+}
+
+.eventos__reserva-link > span {
+  font-family: "Zen Old Mincho", serif;
+  font-size: 14px;
+  font-weight: 900;
+}
+
+.eventos__reserva-link strong {
+  font-family: var(--fonte-condensada), Impact, sans-serif;
+  font-size: 48px;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.eventos__reserva-link strong span {
+  display: inline-block;
+  transition: transform .25s ease;
+}
+
+.eventos__reserva-link:hover strong span {
+  transform: translate(4px, -4px);
+}
+
+.eventos__rodape {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-top: 55px;
+  padding: 18px 0 0;
+  border-top: 2px solid #f0d184;
+  font-family: "Zen Old Mincho", var(--fonte-display), serif;
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: .04em;
+  color: #f5e8c8;
+}
+
+.eventos__rodape span:last-child {
+  color: #f0d184;
+}
 
 @media (max-width: 960px) {
-  .eventos-grade { grid-template-columns: repeat(2, 1fr); }
-  .eventos-rodape { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
+  .eventos__cabecalho {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .eventos__titulo h2 {
+    font-size: clamp(75px, 15vw, 135px);
+  }
+
+  .eventos__cabecalho-lateral {
+    width: auto;
+  }
+
+  .eventos__faixa span {
+    display: none;
+  }
+
+  .eventos__composicao {
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    padding: 35px 0;
+  }
+
+  .evento-festival--aniversario,
+  .evento-festival--especiais,
+  .evento-festival--privada,
+  .evento-festival--grupos {
+    margin: 0;
+  }
+
+  .eventos__intervencao {
+    display: none;
+  }
+
+  .eventos__reserva {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 640px) {
+  .eventos {
+    padding: 55px 0;
+  }
+
+  .eventos__cartaz {
+    padding: 0 20px;
+  }
+
+  .eventos__topo {
+    font-size: 10px;
+    gap: 12px;
+  }
+
+  .eventos__topo span:last-child {
+    text-align: right;
+  }
+
+  .eventos__sol {
+    width: 280px;
+    height: 280px;
+    right: -130px;
+  }
+
+  .eventos__titulo h2 {
+    font-size: clamp(65px, 16vw, 100px);
+  }
+
+  .eventos__composicao {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "grupos"
+      "privada"
+      "aniversario"
+      "especiais";
+    gap: 32px;
+  }
+
+  .evento-festival {
+    transform: none;
+  }
+
+  .evento-festival__foto,
+  .evento-festival--grupos .evento-festival__foto,
+  .evento-festival--privada .evento-festival__foto,
+  .evento-festival--aniversario .evento-festival__foto,
+  .evento-festival--especiais .evento-festival__foto {
+    height: 240px;
+  }
+
+  .eventos__reserva {
+    padding: 22px;
+  }
+
+  .eventos__reserva-texto > strong {
+    font-size: clamp(42px, 11vw, 65px);
+  }
+
+  .eventos__reserva-link {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .eventos__reserva-link strong {
+    font-size: clamp(34px, 9vw, 48px);
+  }
+
+  .eventos__rodape {
+    margin-top: 45px;
+    flex-wrap: wrap;
+    gap: 10px;
+    font-size: 11px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .evento-festival__foto img,
+  .eventos__reserva-link,
+  .eventos__reserva-link strong span {
+    transition: none;
+  }
 }

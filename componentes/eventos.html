@@ -1,37 +1,112 @@
-﻿<section class="eventos secao" id="eventos">
-  <div class="container">
-    <header class="secao__cabecalho revelar">
-      <p class="secao__selo">特別な瞬間</p>
-      <h2 class="secao__titulo">Eventos</h2>
-      <p class="secao__descricao">Reservamos a casa para grupos. Consulte as condições e a disponibilidade.</p>
+﻿
+<section class="eventos secao" id="eventos">
+  <div class="eventos__cartaz">
+    <div class="eventos__ruido" aria-hidden="true"></div>
+    <div class="eventos__sol" aria-hidden="true"></div>
+
+    <div class="eventos__topo">
+      <span>YUMMY LAMEN / 宴会・お祝い・貸切</span>
+      <span>ご予約承ります!</span>
+    </div>
+
+    <header class="eventos__cabecalho">
+      <div class="eventos__titulo">
+        <span class="eventos__titulo-jp">いつもの場所で、特別な夜を。</span>
+        <h2>集まれ<span>!</span></h2>
+      </div>
+
+      <div class="eventos__cabecalho-lateral">
+        <span>みんなで楽しいひとときを</span>
+        <strong>TODO MUNDO<br>É BEM-VINDO!</strong>
+      </div>
     </header>
-    <div class="eventos-grade">
-      <article class="evento-card">
-        <img src="assets/img/events/events-1.jpg" alt="Grupos" loading="lazy">
-        <div class="evento-sobreposicao"></div>
-        <div class="evento-conteudo"><span class="evento-kanji">集い</span><h3>Grupos</h3><p>Mesas juntas para grupos de até oito pessoas. Ideal para jantares em família.</p></div>
+
+    <div class="eventos__faixa">
+      <span>宴会大歓迎!</span>
+      <strong>COMEMORE COM A GENTE</strong>
+      <span>お祝いしよう!</span>
+    </div>
+
+    <div class="eventos__composicao">
+      <article class="evento-festival evento-festival--grupos">
+        <div class="evento-festival__foto">
+          <img src="assets/img/events/events-1.jpg" alt="Grupos reunidos no restaurante" loading="lazy">
+          <span class="evento-festival__numero">01</span>
+        </div>
+
+        <div class="evento-festival__conteudo">
+          <span class="evento-festival__japones">仲間と一緒に</span>
+          <h3>GRUPOS!</h3>
+          <p>Mesas juntas para grupos de até oito pessoas. Ideal para jantares em família.</p>
+          <span class="evento-festival__detalhe">最大8名様</span>
+        </div>
       </article>
-      <article class="evento-card">
-        <img src="assets/img/events/events-2.jpg" alt="Reserva privada" loading="lazy">
-        <div class="evento-sobreposicao"></div>
-        <div class="evento-conteudo"><span class="evento-kanji">専用</span><h3>Reserva privada</h3><p>A casa fechada para o seu grupo, com o cardápio acertado com antecedência.</p></div>
+
+      <article class="evento-festival evento-festival--privada">
+        <div class="evento-festival__titulo-superior">
+          <span>貸切できます!</span>
+          <strong>RESERVA PRIVADA</strong>
+        </div>
+
+        <div class="evento-festival__foto">
+          <img src="assets/img/events/events-2.jpg" alt="Ambiente para reserva privada" loading="lazy">
+          <span class="evento-festival__numero">02</span>
+        </div>
+
+        <div class="evento-festival__conteudo">
+          <span class="evento-festival__japones">貸切宴会</span>
+          <p>Mesa para dois, com o cardápio acertado com antecedência.</p>
+        </div>
       </article>
-      <article class="evento-card">
-        <img src="assets/img/events/events-3.jpg" alt="Aniversários" loading="lazy">
-        <div class="evento-sobreposicao"></div>
-        <div class="evento-conteudo"><span class="evento-kanji">誕生</span><h3>Aniversários</h3><p>Comemore com lamen. Traga o bolo, nós cuidamos da mesa e do caldo.</p></div>
+
+      <div class="eventos__intervencao">
+        <span>お祝い</span>
+        <strong>乾杯!</strong>
+        <small>UM BRINDE AOS BONS MOMENTOS</small>
+      </div>
+
+      <article class="evento-festival evento-festival--aniversario">
+        <div class="evento-festival__foto">
+          <img src="assets/img/events/events-3.jpg" alt="Comemoração de aniversário" loading="lazy">
+          <span class="evento-festival__numero">03</span>
+        </div>
+
+        <div class="evento-festival__conteudo">
+          <span class="evento-festival__japones">お誕生日おめでとう!</span>
+          <h3>ANIVERSÁRIOS</h3>
+          <p>Comemore com lamen. Traga o bolo, nós cuidamos da mesa e do caldo.</p>
+        </div>
       </article>
-      <article class="evento-card">
-        <img src="assets/img/events/events-4.jpg" alt="Datas especiais" loading="lazy">
-        <div class="evento-sobreposicao"></div>
-        <div class="evento-conteudo"><span class="evento-kanji">婚儀</span><h3>Datas especiais</h3><p>Almoços e jantares de comemoração, com horário reservado para o seu grupo.</p></div>
+
+      <article class="evento-festival evento-festival--especiais">
+        <div class="evento-festival__foto">
+          <img src="assets/img/events/events-4.jpg" alt="Celebração de uma data especial" loading="lazy">
+          <span class="evento-festival__numero">04</span>
+        </div>
+
+        <div class="evento-festival__conteudo">
+          <span class="evento-festival__japones">特別な日</span>
+          <h3>DATAS ESPECIAIS</h3>
+          <p>Almoços e jantares de comemoração, com horário reservado para o seu grupo.</p>
+        </div>
       </article>
     </div>
-    <div class="eventos-rodape">
-      <span>Para reservar, entre em contato.</span>
-      <a href="#contato" class="link-secao">Fale conosco <span aria-hidden="true">↗</span></a>
+
+    <div class="eventos__reserva">
+      <div class="eventos__reserva-texto">
+        <span>ご予約・お問い合わせ</span>
+        <strong>VAMOS COMBINAR?</strong>
+      </div>
+
+      <a href="#contato" class="eventos__reserva-link">
+        <span>お問い合わせはこちら</span>
+        <strong>FALE CONOSCO <span aria-hidden="true">↗</span></strong>
+      </a>
     </div>
+
+    <footer class="eventos__rodape">
+      <span>みんなで楽しいひとときを。</span>
+      <span>YUMMY LAMEN</span>
+    </footer>
   </div>
 </section>
-
-

@@ -1,12 +1,33 @@
-﻿.capa {
+﻿
+.capa {
   position: relative;
   min-height: 100vh;
+  min-height: 100svh;
   padding: clamp(7rem, 12vw, 10rem) clamp(1.25rem, 4vw, 2.5rem) clamp(2rem, 4vw, 3rem);
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  background-color: var(--off-white);
+  background-color: #f0e5c9;
+  color: #342b25;
   overflow: hidden;
+  isolation: isolate;
+}
+
+.capa *,
+.capa *::before,
+.capa *::after {
+  box-sizing: border-box;
+}
+
+.capa::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: .12;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.7' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.4'/%3E%3C/svg%3E");
+  mix-blend-mode: multiply;
 }
 
 .capa__faixa-central {
@@ -14,31 +35,34 @@
   top: 0;
   bottom: 15%;
   left: 50%;
-  transform: translateX(-50%);
-  width: clamp(140px, 20vw, 240px);
-  background-color: var(--carvao);
   z-index: 3;
+  width: clamp(140px, 25vw, 255px);
+  background-color: var(--carvao);
+  transform: translateX(-50%);
 }
 
 .capa__fundo {
   position: absolute;
-  inset: 35% 0 15% 0;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  inset: 35% 0 15%;
   z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .capa__caldo {
   position: relative;
+  min-width: 0;
   overflow: hidden;
+  background: #9c8061;
 }
 
 .capa__caldo img {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: sepia(0.4) saturate(0.85) contrast(0.75) blur(0.09rem);
-  transform: scale(1.05);
+  filter: sepia(.23) saturate(.85) contrast(.94) brightness(.94);
+  transform: scale(1.025);
 }
 
 .capa__caldo--esquerda img {
@@ -54,19 +78,23 @@
   top: 19%;
   left: 5%;
   right: 5%;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
   z-index: 3;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
   pointer-events: none;
 }
 
 .capa__kanji-texto {
-  font-family: var(--fonte-display);
-  font-size: clamp(1rem, 2vw, 1.5rem);
-  color: var(--carvao);
-  letter-spacing: 0.1em;
+  display: block;
+  font-family: "Zen Old Mincho", var(--fonte-display), serif;
+  font-size: clamp(13px, 1.7vw, 20px);
+  font-weight: 900;
+  line-height: 1.4;
+  letter-spacing: .08em;
   text-align: right;
+  color: #41352c;
 }
 
 .capa__kanji-texto--esq {
@@ -75,52 +103,191 @@
 
 .capa__kanji-texto strong {
   display: block;
-  font-size: clamp(3rem, 6vw, 5rem);
-  font-weight: 700;
-  color: var(--oliva);
-  opacity: 0.8;
-  margin-top: 0.5rem;
+  margin-top: 7px;
+  font-family: "Zen Old Mincho", var(--fonte-display), serif;
+  font-size: clamp(48px, 6vw, 85px);
+  font-weight: 900;
   line-height: 1;
+  letter-spacing: .02em;
+  color: #a43d30;
 }
 
 .capa__prato-central {
   position: relative;
   z-index: 4;
-  width: clamp(280px, 45vw, 600px);
+  width: min(41.5rem, 83vw);
+  aspect-ratio: 1 / 1;
   margin: 0 auto;
-  transform: translateY(5%);
+  transform: translateY(2%);
+  pointer-events: none;
 }
 
-.capa__prato-central img {
-  width: 100%;
-  height: auto;
+.capa__prato {
+  position: absolute;
   display: block;
-  filter: drop-shadow(0 15px 30px rgba(32, 32, 29, 0.4));
-  will-change: transform;}
+  width: 43%;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 12px 18px rgba(32, 32, 29, .22));
+  transform-origin: center center;
+  will-change: transform;
+}
+
+.capa__prato--esquerda {
+  top: 20.5%;
+  left: 11%;
+  z-index: 2;
+}
+
+.capa__prato--direita {
+  top: 21.5%;
+  right: 11%;
+  z-index: 2;
+}
+
+.capa__prato--inferior {
+  top: 49.5%;
+  left: 28%;
+  z-index: 3;
+}
 
 .capa__rodape {
+  position: relative;
+  z-index: 4;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  gap: 20px;
   width: 100%;
   margin: 0 auto;
-  padding-top: 2rem;
-  font-family: var(--fonte-corpo);
-  font-size: 0.75rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--oliva);
-  position: relative;
-  z-index: 2;
-  border-top: 1px solid var(--areia);
+  padding-top: 20px;
+  border-top: 2px solid #bfa987;
+  font-family: "Zen Old Mincho", var(--fonte-display), serif;
+  font-size: clamp(12px, 1vw, 15px);
+  font-weight: 900;
+  letter-spacing: .08em;
+  color: #9c4234;
 }
 
 @media (max-width: 960px) {
-  .capa { justify-content: center; padding-top: 8rem; }
-  .capa__fundo { inset: 25% 0 30% 0; }
-  .capa__kanji-topo { top: 12%; }
-  .capa__kanji-texto { font-size: 0.75rem; }
-  .capa__kanji-texto strong { font-size: clamp(2rem, 8vw, 3rem); }
-  .capa__prato-central { width: 85vw; transform: translateY(0); }
-  .capa__rodape { flex-direction: column; align-items: center; gap: 0.5rem; text-align: center; border-top: none; }
+  .capa {
+    justify-content: center;
+    padding-top: 8rem;
+  }
+
+  .capa__fundo {
+    inset: 25% 0 30%;
+  }
+
+  .capa__faixa-central {
+    bottom: 30%;
+  }
+
+  .capa__kanji-topo {
+    top: 13%;
+  }
+
+  .capa__kanji-texto {
+    font-size: 12px;
+  }
+
+  .capa__kanji-texto strong {
+    font-size: clamp(32px, 6vw, 55px);
+  }
+
+  .capa__prato-central {
+    width: min(78vw, 625px);
+    transform: none;
+  }
+
+  .capa__rodape {
+    flex-direction: column;
+    align-items: center;
+    gap: 7px;
+    padding-top: 15px;
+    border-top: none;
+    text-align: center;
+  }
 }
 
+@media (max-width: 600px) {
+  .capa {
+    min-height: 100svh;
+    padding: 115px 15px 35px;
+  }
+
+  .capa__faixa-central {
+    width: 30vw;
+    bottom: 28%;
+  }
+
+  .capa__fundo {
+    inset: 33% 0 28%;
+  }
+
+  .capa__kanji-topo {
+    top: 20%;
+    left: 6%;
+    right: 6%;
+    gap: 10px;
+  }
+
+  .capa__kanji-texto {
+    max-width: 45%;
+    font-size: 10px;
+    letter-spacing: 0;
+  }
+
+  .capa__kanji-texto strong {
+    margin-top: 5px;
+    font-size: clamp(27px, 8vw, 43px);
+  }
+
+  .capa__prato-central {
+    width: min(92%, 420px);
+  }
+
+  .capa__prato {
+    width: 46%;
+  }
+
+  .capa__prato--esquerda {
+    top: 20%;
+    left: 6%;
+  }
+
+  .capa__prato--direita {
+    top: 20%;
+    right: 6%;
+  }
+
+  .capa__prato--inferior {
+    top: 45%;
+    left: 27%;
+  }
+
+  .capa__rodape {
+    position: absolute;
+    right: 15px;
+    bottom: 28px;
+    left: 15px;
+    width: auto;
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 380px) {
+  .capa__kanji-topo {
+    top: 22%;
+  }
+
+  .capa__kanji-texto strong {
+    font-size: 27px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .capa__prato {
+    will-change: auto;
+  }
+}

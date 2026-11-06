@@ -1,21 +1,401 @@
-﻿.depoimentos { background-color: #f2ede1; }
+﻿
+.depoimentos {
+  position: relative;
+  padding: clamp(65px, 8vw, 110px) 0;
+  overflow: hidden;
+  background: #d98b79;
+  color: #422b24;
+}
 
-.depoimentos-grade { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-top: 1px solid var(--borda-fina); border-bottom: 1px solid var(--borda-fina); }
+.depoimentos::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: .14;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.7' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.4'/%3E%3C/svg%3E");
+  mix-blend-mode: multiply;
+}
 
-.depoimento { padding: clamp(2rem, 4vw, 3rem); border-right: 1px solid var(--borda-fina); display: flex; flex-direction: column; justify-content: space-between; }
-.depoimento:last-child { border-right: none; }
-.depoimento-destaque { background-color: var(--off-white); }
+.depoimentos .container {
+  position: relative;
+  z-index: 1;
+}
 
-.depoimento-aspas { font-family: var(--fonte-display); font-size: 4rem; line-height: 1; color: var(--vermelho); margin-bottom: 1rem; display: block; }
+.depoimentos *,
+.depoimentos *::before,
+.depoimentos *::after {
+  box-sizing: border-box;
+}
 
-.depoimento p { font-family: var(--fonte-display); font-size: 1.125rem; line-height: 1.6; color: var(--carvao); margin-bottom: 2rem; }
+.depoimentos h2,
+.depoimentos p {
+  margin: 0;
+}
 
-.depoimento-rodape { display: flex; align-items: center; justify-content: space-between; }
-.depoimento-rodape strong { font-family: var(--fonte-corpo); font-size: 0.875rem; font-weight: 600; }
-.depoimento-rodape span { color: var(--vermelho); font-size: 0.75rem; letter-spacing: 0.1em; }
+.depoimentos__topo {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #713c31;
+  font-family: "Zen Old Mincho", var(--fonte-display), serif;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: .08em;
+}
+
+.depoimentos__cabecalho {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 35px;
+  padding: 28px 5px 38px;
+}
+
+.depoimentos__titulo {
+  flex: 1;
+  min-width: 0;
+}
+
+.depoimentos__titulo-jp {
+  display: block;
+  margin-bottom: 8px;
+  font-family: "Zen Old Mincho", serif;
+  font-size: 17px;
+  font-weight: 900;
+  color: #713b30;
+}
+
+.depoimentos__titulo h2 {
+  font-family: var(--fonte-condensada), Impact, sans-serif;
+  font-size: clamp(65px, 8.5vw, 125px);
+  font-weight: 400;
+  line-height: .85;
+  letter-spacing: -.015em;
+  color: #f8e9c5;
+  text-shadow: 5px 5px 0 #9e4b3b;
+}
+
+.depoimentos__titulo h2 span {
+  color: #f2ca69;
+}
+
+.depoimentos__titulo p {
+  margin-top: 17px;
+  font-family: var(--fonte-corpo), sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.depoimentos__cabecalho-jp {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 170px;
+  height: 115px;
+  border: 5px double #793e32;
+  color: #713b30;
+  font-family: "Zen Old Mincho", serif;
+  transform: rotate(9deg);
+}
+
+.depoimentos__cabecalho-jp span {
+  font-size: 29px;
+  font-weight: 900;
+}
+
+.depoimentos__cabecalho-jp strong {
+  font-size: 23px;
+}
+
+.depoimentos__mural {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: clamp(16px, 3vw, 40px);
+  align-items: start;
+  padding: 65px 18px 45px;
+  border-top: 4px solid #85483a;
+  border-bottom: 4px solid #85483a;
+  background:
+    repeating-linear-gradient(0deg, transparent 0 31px, rgba(107, 58, 45, .09) 32px 33px),
+    rgba(255, 230, 190, .1);
+}
+
+.depoimentos__mural-inscricao {
+  position: absolute;
+  top: 12px;
+  left: 20px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.depoimentos__mural-inscricao span {
+  font-family: "Zen Old Mincho", serif;
+  font-size: 17px;
+  font-weight: 900;
+}
+
+.depoimentos__mural-inscricao strong {
+  font-family: var(--fonte-condensada), Impact, sans-serif;
+  font-size: 23px;
+  font-weight: 400;
+}
+
+.depoimento {
+  position: relative;
+  min-width: 0;
+  min-height: 360px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 22px 22px 20px;
+  color: #3b2a23;
+  border: 1px solid rgba(84, 56, 38, .18);
+  box-shadow: 4px 7px 0 rgba(91, 52, 42, .13);
+}
+
+.depoimento--primeiro {
+  margin-top: 15px;
+  background: #f5e8c9;
+  transform: rotate(-3deg);
+}
+
+.depoimento--segundo {
+  margin-top: 0;
+  background: #e8dcae;
+  transform: rotate(2deg);
+}
+
+.depoimento--terceiro {
+  margin-top: 22px;
+  background: #c8dfd8;
+  transform: rotate(-2deg);
+}
+
+.depoimento__fita {
+  position: absolute;
+  top: -13px;
+  left: 50%;
+  width: 85px;
+  height: 26px;
+  background: rgba(247, 220, 154, .75);
+  border-left: 1px dashed rgba(119, 84, 52, .2);
+  border-right: 1px dashed rgba(119, 84, 52, .2);
+  transform: translateX(-50%) rotate(-5deg);
+}
+
+.depoimento--segundo .depoimento__fita {
+  transform: translateX(-50%) rotate(7deg);
+}
+
+.depoimento--terceiro .depoimento__fita {
+  transform: translateX(-50%) rotate(-3deg);
+}
+
+.depoimento__cabecalho {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding-bottom: 12px;
+  border-bottom: 2px dashed rgba(92, 59, 43, .4);
+}
+
+.depoimento__cabecalho span {
+  font-family: "Zen Old Mincho", serif;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.depoimento__cabecalho strong {
+  color: #a43d2d;
+  font-size: 16px;
+  letter-spacing: .03em;
+  white-space: nowrap;
+}
+
+.depoimento__texto {
+  position: relative;
+  flex: 1;
+  padding: 18px 0;
+}
+
+.depoimento__aspas {
+  display: block;
+  height: 40px;
+  font-family: "Zen Old Mincho", serif;
+  font-size: 67px;
+  line-height: 1;
+  color: #a43d2d;
+}
+
+.depoimento__texto > p:not(.depoimento__japones) {
+  font-family: "Zen Old Mincho", var(--fonte-display), serif;
+  font-size: clamp(17px, 1.6vw, 22px);
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.depoimento__japones {
+  margin-top: 17px !important;
+  padding-top: 12px;
+  border-top: 1px solid rgba(95, 60, 43, .25);
+  font-family: "Zen Old Mincho", serif;
+  font-size: 12px;
+  line-height: 1.7;
+  color: #785d4b;
+}
+
+.depoimento__rodape {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding-top: 12px;
+  border-top: 2px solid rgba(91, 55, 39, .65);
+}
+
+.depoimento__rodape strong {
+  font-family: var(--fonte-corpo), sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.depoimento__rodape span {
+  font-family: "Zen Old Mincho", serif;
+  font-size: 12px;
+  font-weight: 900;
+  color: #a43d2d;
+}
+
+.depoimentos__carimbo {
+  position: absolute;
+  right: 8px;
+  bottom: -25px;
+  z-index: 4;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 6px double #8e3f32;
+  border-radius: 50%;
+  background: #edc96e;
+  color: #913d30;
+  font-family: "Zen Old Mincho", serif;
+  transform: rotate(-15deg);
+}
+
+.depoimentos__carimbo span {
+  font-size: 33px;
+  font-weight: 900;
+}
+
+.depoimentos__carimbo strong {
+  font-size: 18px;
+}
+
+.depoimentos__rodape {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 35px 5px 0;
+}
+
+.depoimentos__rodape span {
+  font-family: "Zen Old Mincho", serif;
+  font-size: 14px;
+  font-weight: 900;
+}
+
+.depoimentos__rodape strong {
+  font-family: var(--fonte-condensada), Impact, sans-serif;
+  font-size: clamp(24px, 3vw, 39px);
+  font-weight: 400;
+  text-align: center;
+  color: #f7e8c5;
+}
 
 @media (max-width: 960px) {
-  .depoimentos-grade { grid-template-columns: 1fr; }
-  .depoimento { border-right: none; border-bottom: 1px solid var(--borda-fina); }
-  .depoimento:last-child { border-bottom: none; }
+  .depoimentos__titulo h2 {
+    font-size: clamp(55px, 8vw, 90px);
+  }
+
+  .depoimentos__mural {
+    grid-template-columns: 1fr 1fr;
+    gap: 35px;
+  }
+
+  .depoimento--terceiro {
+    grid-column: 1 / -1;
+    width: min(420px, 100%);
+    justify-self: center;
+  }
+
+  .depoimentos__carimbo {
+    display: none;
+  }
+
+  .depoimentos__rodape {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 640px) {
+  .depoimentos {
+    padding: 55px 0;
+  }
+
+  .depoimentos__topo span:last-child {
+    display: none;
+  }
+
+  .depoimentos__cabecalho {
+    padding: 25px 0;
+  }
+
+  .depoimentos__titulo h2 {
+    font-size: clamp(48px, 12vw, 75px);
+  }
+
+  .depoimentos__cabecalho-jp {
+    display: none;
+  }
+
+  .depoimentos__mural {
+    grid-template-columns: 1fr;
+    gap: 35px;
+    padding: 60px 12px 30px;
+  }
+
+  .depoimento {
+    min-height: 0;
+    margin: 0;
+    padding: 22px;
+  }
+
+  .depoimento--terceiro {
+    grid-column: auto;
+    width: 100%;
+  }
+
+  .depoimentos__mural-inscricao strong {
+    font-size: 18px;
+  }
+
+  .depoimentos__rodape {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .depoimentos__rodape strong {
+    text-align: left;
+  }
 }

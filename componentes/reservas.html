@@ -1,19 +1,85 @@
-﻿<section id="reservas" class="reservas secao">
-  <div class="reservas__imagem revelar"><img src="assets/img/reserva.png" alt="Ambiente do restaurante" loading="lazy"></div>
-  <div class="reservas__conteudo revelar">
-    <p class="secao__selo">ご予約</p>
-    <h2 class="secao__titulo">Reservas</h2>
-    <p class="secao__descricao">Reserve uma mesa. Atendemos de terça a domingo, das 18h às 23h.</p>
-    <form class="formulario-reserva" id="formulario-reserva">
-      <div class="campo"><label for="reserva-nome">Nome</label><input type="text" id="reserva-nome" name="nome" placeholder="Seu nome" required></div>
-      <div class="campo"><label for="reserva-email">E-mail</label><input type="email" id="reserva-email" name="email" placeholder="seu@email.com" required></div>
-      <div class="campo"><label for="reserva-data">Data</label><input type="date" id="reserva-data" name="data" required></div>
-      <div class="campo"><label for="reserva-horario">Horário</label><input type="time" id="reserva-horario" name="horario" required></div>
-      <div class="campo campo--largo"><label for="reserva-pessoas">Pessoas</label><select id="reserva-pessoas" name="pessoas" required><option value="">Selecione</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7 ou mais">7 ou mais</option></select></div>
-      <button type="submit" class="botao botao--primario campo--largo">Reservar</button>
-      <p class="mensagem-formulario campo--largo" id="mensagem-reserva" aria-live="polite"></p>
-    </form>
+﻿
+<section id="reservas" class="reservas secao">
+  <div class="container reservas__conteudo revelar">
+    <div class="reservas__topo">
+      <span>YUMMY LAMEN / ご予約</span>
+      <span>ご予約受付中!</span>
+    </div>
+
+    <header class="reservas__cabecalho">
+      <div class="reservas__titulo">
+        <span class="reservas__titulo-jp">お席のご予約はこちらから</span>
+        <h2>RESERVA<em>!</em></h2>
+      </div>
+
+      <div class="reservas__selo">
+        <span>ご予約</span>
+        <strong>受付中!</strong>
+      </div>
+    </header>
+
+    <div class="reservas__ficha">
+      <div class="reservas__ficha-cabecalho">
+        <div class="reservas__ficha-identificacao">
+          <span>予約票</span>
+          <strong>FICHA DE RESERVA</strong>
+        </div>
+      </div>
+
+      <div class="reservas__ficha-informacao">
+        <span>営業時間</span>
+        <p>Atendemos de terça a domingo, das <strong>18h às 23h.</strong></p>
+      </div>
+
+      <form class="formulario-reserva" id="formulario-reserva">
+        <div class="campo">
+          <label for="reserva-nome"><span>01</span> Nome <small>お名前</small></label>
+          <input type="text" id="reserva-nome" name="nome" placeholder="Seu nome" autocomplete="name" required>
+        </div>
+
+        <div class="campo">
+          <label for="reserva-email"><span>02</span> E-mail <small>メール</small></label>
+          <input type="email" id="reserva-email" name="email" placeholder="seu@email.com" autocomplete="email" required>
+        </div>
+
+        <div class="campo">
+          <label for="reserva-data"><span>03</span> Data <small>ご希望日</small></label>
+          <input type="date" id="reserva-data" name="data" required>
+        </div>
+
+        <div class="campo">
+          <label for="reserva-horario"><span>04</span> Horário <small>ご希望時間</small></label>
+          <input type="time" id="reserva-horario" name="horario" required>
+        </div>
+
+        <div class="campo campo--largo">
+          <label for="reserva-pessoas"><span>05</span> Pessoas <small>人数</small></label>
+          <select id="reserva-pessoas" name="pessoas" required>
+            <option value="">Quantas pessoas vêm?</option>
+            <option value="1">1 pessoa</option>
+            <option value="2">2 pessoas</option>
+            <option value="3">3 pessoas</option>
+            <option value="4">4 pessoas</option>
+            <option value="5">5 pessoas</option>
+            <option value="6">6 pessoas</option>
+            <option value="7 ou mais">7 ou mais pessoas</option>
+          </select>
+        </div>
+
+        <p class="mensagem-formulario campo--largo" id="mensagem-reserva" aria-live="polite"></p>
+
+        <div class="reservas__formulario-rodape campo--largo">
+          <button type="submit" class="botao botao--primario reservas__botao">
+            <span>予約する</span>
+            <strong>RESERVAR <span aria-hidden="true">↗</span></strong>
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <div class="reservas__rodape">
+      <span>おいしい時間を、一緒に。</span>
+      <span>YUMMY LAMEN</span>
+    </div>
   </div>
 </section>
-
-
