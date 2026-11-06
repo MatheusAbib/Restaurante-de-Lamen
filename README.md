@@ -13,7 +13,7 @@ A aplicação foi desenvolvida com **HTML5, CSS3 e JavaScript puro**, priorizand
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 
-> 🔗 **Acesse o projeto online:** (https://matheusabib.github.io/Restaurante-de-Lamen/)
+> 🔗 **Acesse o projeto online:** (https://yummylamen.vercel.app/)
 
 ---
 
