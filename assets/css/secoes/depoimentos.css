@@ -532,7 +532,7 @@
   }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 480px) {
   .depoimentos {
     padding: 55px 8px;
   }

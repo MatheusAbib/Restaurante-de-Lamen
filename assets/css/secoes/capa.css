@@ -354,7 +354,7 @@
 
 @media (max-width: 480px) {
   .capa {
-    padding: 105px 12px 95px;
+    padding: 105px 8px 80px;
   }
 
   .capa__kanji-topo {
@@ -366,6 +366,7 @@
   .capa__kanji-texto {
     max-width: 44%;
     font-size: 9px;
+    line-height: 4;
   }
 
   .capa__kanji-texto strong {
@@ -407,7 +408,7 @@ display: none;
   }
 
   .capa__kanji-texto {
-    font-size: 10px;
+    font-size: 9px;
   }
 
   .capa__prato-central {

@@ -590,7 +590,7 @@
   }
 }
 
-@media (max-width: 380px) {
+@media (max-width: 480px) {
   .contato {
     padding-inline: 8px;
   }
