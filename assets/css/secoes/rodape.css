@@ -97,7 +97,12 @@
   }
 
   .rodape__titulo {
-    font-size: clamp(3.5rem, 14vw, 5.5rem);
+    font-size: clamp(1.5rem, 10vw, 5.5rem);
+  }
+
+  .rodape__logo{
+    width: 54px;
+    height: 54px;
   }
 
   .rodape__tagline{

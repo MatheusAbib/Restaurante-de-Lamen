@@ -2582,9 +2582,9 @@
 
   }
 
-  .cardapio__interlude {
+  .cardapio__interlude, .cardapio__bebidas-chamada, .cardapio__doces-interlude {
 
-    min-height: 180px;
+  display: none;
 
   }
 
@@ -2734,15 +2734,11 @@
 
   .cardapio__bebidas-grupo--aguas,
 
-  .cardapio__bebidas-chamada,
-
   .cardapio__bebidas-japonesas,
 
   .cardapio__doce--daifuku,
 
   .cardapio__doce--dorayaki,
-
-  .cardapio__doces-interlude,
 
   .cardapio__doce--matcha,
 
@@ -3022,7 +3018,7 @@
 
 @media (max-width: 480px) {
   .cardapio {
-    padding-inline: 18px;
+    padding-inline: 8px;
   }
 
   .cardapio__sheet {

@@ -134,19 +134,19 @@
 }
 
 .capa__prato--esquerda {
-  top: 20.5%;
+  top: 18%;
   left: 11%;
   z-index: 2;
 }
 
 .capa__prato--direita {
-  top: 21.5%;
+  top: 19.5%;
   right: 11%;
   z-index: 2;
 }
 
 .capa__prato--inferior {
-  top: 49.5%;
+  top: 48%;
   left: 28%;
   z-index: 3;
 }
@@ -270,17 +270,17 @@
   }
 
   .capa__prato--esquerda {
-    top: 20%;
-    left: 7%;
+    top: 16%;
+    left: 9%;
   }
 
   .capa__prato--direita {
-    top: 20%;
-    right: 7%;
+    top: 16%;
+    right: 9%;
   }
 
   .capa__prato--inferior {
-    top: 46%;
+    top: 42%;
     left: 27.5%;
   }
 
@@ -302,11 +302,6 @@
 
   .capa__faixa-central {
     width: 35vw;
-    bottom: 28%;
-  }
-
-  .capa__fundo {
-    inset: 33% 0 28%;
   }
 
   .capa__kanji-topo {
@@ -390,7 +385,6 @@ display: none;
 
   .capa__prato--inferior {
     top: 20%;
-    left: 21%;
   }
 
   .capa__rodape {
@@ -413,12 +407,11 @@ display: none;
   }
 
   .capa__kanji-texto {
-    font-size: 8px;
+    font-size: 10px;
   }
 
   .capa__prato-central {
     transform: translateY(2%);
-            width: min(96vw, 490px);
   }
 
   .capa__rodape {

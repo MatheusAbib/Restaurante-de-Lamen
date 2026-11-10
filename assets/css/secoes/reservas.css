@@ -652,7 +652,7 @@
 
 @media (max-width: 380px) {
   .reservas {
-    padding-inline: 6px;
+    padding-inline: 8px;
   }
 
   .reservas__titulo h2 {

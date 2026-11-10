@@ -26,6 +26,11 @@
     rel="stylesheet"
   >
 
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css"
+  >
+
   <style>
     .loader {
       position: fixed;
@@ -248,6 +253,7 @@
   <script src="assets/js/menu.js"></script>
   <script src="assets/js/revelar.js"></script>
   <script src="assets/js/rotacao.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
 
   <script>
     (() => {
@@ -284,6 +290,96 @@
 
       setTimeout(ocultarLoader, 4000);
     })();
+
+     (() => {
+    let lightbox = null;
+    let atualizando = false;
+
+    const iniciarLightbox = () => {
+      if (typeof GLightbox === "undefined") return;
+
+      const imagensEventos = document.querySelectorAll(
+        ".eventos .evento-festival__foto"
+      );
+
+      imagensEventos.forEach((foto) => {
+        const imagem = foto.querySelector("img");
+
+        if (!imagem || foto.dataset.lightboxConfigurado) return;
+
+        foto.dataset.lightboxConfigurado = "true";
+        foto.style.cursor = "pointer";
+
+        foto.addEventListener("click", () => {
+          const imagens = Array.from(
+            document.querySelectorAll(".eventos .evento-festival__foto img")
+          );
+
+          const indice = imagens.indexOf(imagem);
+
+          const galeriaEventos = GLightbox({
+            elements: imagens.map((img) => ({
+              href: img.getAttribute("src"),
+              type: "image"
+            })),
+            startAt: indice,
+            touchNavigation: true,
+            loop: true,
+            openEffect: "fade",
+            closeEffect: "fade"
+          });
+
+          galeriaEventos.on("close", () => {
+            galeriaEventos.destroy();
+          });
+
+          galeriaEventos.openAt(indice);
+        });
+      });
+
+      if (lightbox) {
+        lightbox.destroy();
+      }
+
+      lightbox = GLightbox({
+        selector: ".galeria .glightbox",
+        touchNavigation: true,
+        loop: true,
+        autoplayVideos: false,
+        openEffect: "fade",
+        closeEffect: "fade"
+      });
+    };
+
+    document.addEventListener("DOMContentLoaded", () => {
+      iniciarLightbox();
+
+      const main = document.querySelector("main");
+
+      if (!main) return;
+
+      const observer = new MutationObserver(() => {
+        if (atualizando) return;
+
+        atualizando = true;
+        observer.disconnect();
+
+        iniciarLightbox();
+
+        observer.observe(main, {
+          childList: true,
+          subtree: true
+        });
+
+        atualizando = false;
+      });
+
+      observer.observe(main, {
+        childList: true,
+        subtree: true
+      });
+    });
+  })();
   </script>
 </body>
 </html>
